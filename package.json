@@ -1,0 +1,26 @@
+{
+  "name": "mon_appetit",
+  "version": "1.0.0",
+  "description": "Personal recipe portfolio compiler",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jchurchman/mon_appetit.git"
+  },
+  "keywords": [
+    "code",
+    "recipe",
+    "mon",
+    "appetit"
+  ],
+  "author": "Mark Petrie, Michele Greenwood, Joe Churchman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jchurchman/mon_appetit/issues"
+  },
+  "homepage": "https://github.com/jchurchman/mon_appetit#readme"
+}
