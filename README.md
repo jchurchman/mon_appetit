@@ -5,10 +5,10 @@
 
 _Mon Appetit_ is a web-based recipe app that inspires users to select enticing recipes from an online recipe database and make them their own.
 
-#####Problem Statement:
+##### Problem Statement:
 For today's developer-on-the-go, it is difficult to figure out "what's for dinner" when you've spent all day slaving in front of a keyboard. _Mon Appetit_ aims to provide meal ideas for the busy professional. This website allows users to save recipes they like and make comments on their cooking experience.
 
-####MVP
+#### MVP
 * Single Page App format
 * Unique user login (stored in DB)
 * Utilize unique user login for personalized welcome message
@@ -22,7 +22,7 @@ For today's developer-on-the-go, it is difficult to figure out "what's for dinne
 
 
 
-####STRETCH GOALS
+#### STRETCH GOALS
 
 * User can apply multiple filters to API search
   *User can filter API search by their own recipes
@@ -31,23 +31,23 @@ For today's developer-on-the-go, it is difficult to figure out "what's for dinne
 * Users can share recipes (or recipe comments) with other users
 * Users can share recipes via email
 
-####DB Models
+#### DB Models
 
-1. USER
+##### 1. USER
   - id
   - username
   - password
   - name
   - route
-2. Normalizing
+##### 2. Normalizing
   - user_id (provided by USER table)
   - recipe_id (provided by API)
   - comment_id (provided by COMMENT table)
-3. COMMENT
+##### 3. COMMENT
   - user_id
   - recipe_id
   - comment
-4. RECIPES
+##### 4. RECIPES
   - Recipe_id
   - Recipe_url
 
