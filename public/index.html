@@ -15,8 +15,30 @@
 
 <body>
     <header>
-        <div id="Welcome">
-            <h1></h1>
+        <a href="/"><img src="mon_appetit_logo"></a>
+        <div id="mainnav">
+            <ul>
+                <li>
+                    <a href="/dashboard">
+                    <span data-icon="icon code" class="icon-????">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myRecipes">
+                    <span data-icon="icon code" class="icon-????">My Recipes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/searchRecipes">
+                    <span data-icon="icon code" class="icon-????">My Recipes</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section id="welcome">
+            <h1>Welcome to <e>Mon Appetit</e></h1>
             <form id="login">
                 <fieldset>
                     <input type="text" placeholder="username" id="username" required>
@@ -36,14 +58,53 @@
                 </fieldset>
             </form>
             <img>
-        </div>
+        </section>
+        <section id="dashboard">
+            <div id="randomrecipe" class="longrecipe">
+                <img src={{photoURL}}>
+                <h3>{{title}}</h3>
+                <table>
+                    <tr>
+                        <td>{{ingredient quantity}}</td>
+                        <td>{{ingredient unit}}</td>
+                        <td>{{ingredient name}}</td>
+                        <td>{{ingredient instructions}}</td>
+                    </tr>
+                </table>
+                <p>{{description}}</p>
+            </div>
+        </section>
+        <section id="searchAll">
+            <form>
+                <fieldset>
+                    <input type="text" placeholder="Enter recipe keyword(s) here">
+                    <button type="submit" class="button"><span>Search</span></button>
+                    <label for="select" class="control-label">Filter By:</label>
+                    <select name="category">
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                    </select>
+                </fieldset>
+            </form>
+            <li>
+            </li>
+        </section>
+        <section id="searchMy">
+            <form>
+                <fieldset>
+                    <input type="text" placeholder="Enter recipe keyword(s) here">
+                    <button type="submit" class="button"><span>Search</span></button>
+
+                </fieldset>
+            </form>
+            <li>
+            </li>
+        </section>
             
-
-
-
-
-
-
+    </main>
     <footer>
         &copy;2017 Mon Appetit --- Mark Petrie, Michele Greenwood, Joe Churchman
     </footer>
