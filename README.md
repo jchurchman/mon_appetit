@@ -44,11 +44,12 @@ For today's developer-on-the-go, it is difficult to figure out "what's for dinne
   - recipe_id (provided by API)
   - comment_id (provided by COMMENT table)
 ##### 3. COMMENT
+  - comment_id
   - user_id
   - recipe_id
   - comment
 ##### 4. RECIPES
-  - Recipe_id
-  - Recipe_url
+  - Recipe_id (local)
+  - Recipe_url (API)
 
 
