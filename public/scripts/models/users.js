@@ -17,6 +17,14 @@ var app = app || {};
       console.log('app.user.signUpListener was called');
       $('#username').on('change', app.user.checkUserName);
       $('#confirm-password').on('change', user.confirmPassword);
+      $('#signup').on('click', 'button', app.user.saveNewUser)
+    }
+
+    user.saveNewUser = () => {
+      event.preventDefault();
+      app.user.checkUserName();
+      app.user.saveUserCredentials();
+      page('/dashboard');
     }
 
     user.confirmPassword = function() {
@@ -24,13 +32,17 @@ var app = app || {};
       ($(this).val() !== $('#new-password').val()) ? ($('#signup p:first').text('Passwords do not match!')) : ($('#signup p:first').text('Passwords match.'));
     }
 
-    user.checkUserName = () => {console.log('app.user.checkUserName is undefined')};
+    user.checkUserName = () => {console.log('app.user.checkUserName is undefined')}; //perhaps returns a boolean?
     user.checkPassword = () => {console.log('app.user.checkPassword is undefined')};
     user.queryUserCredentials = () => {
       console.log('app.user.queryUserCredentials was called');
       event.preventDefault();
-      page('/dashboard')
+      page('/dashboard');
     }
+
+    user.saveUserCredentials = () => {
+      console.log('app.user.saveUserCredentials was called');
+    };
 
     user.queryUserRecipes = () => {
       event.preventDefault();

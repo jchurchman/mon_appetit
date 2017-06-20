@@ -7,8 +7,8 @@ var app = app || {};
 
   appViewer.initIndexApp = () => {
     console.log('app.appViewer.initIndexApp was called');
-      $('#welcome').show().siblings().hide();
       $('#mainnav').hide();
+      $('#welcome').show().siblings().hide();
       $('#login').hide();
     }
 
