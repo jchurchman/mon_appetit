@@ -1,3 +1,5 @@
 'use strict';
 
-$('.fill').on('click', userAuthentication.check);
+$('#login button').on('click', app.userAuthentication.check);
+
+$('#signup').on('submit', app.userAuthentication.create);

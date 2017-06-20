@@ -1,7 +1,24 @@
 'use strict';
-var Users = {};
-Users.findwhere = function(userName, password) {
-  console.log('in users findwhere', userName, password);
-  $.get('/login', { userName: userName, password: password  })
-    .then((data) => console.log('got data', data));
-};
+
+var app = app || {};
+
+(function (module) {
+
+  var users = {};
+  users.findwhere = function (userCheck) {
+    console.log('in users findwhere', userCheck);
+    $.get('/login', { userCheck: userCheck })
+      .then((data) => { //console.log('got data', data));
+        if (data.length === 0) {
+          $('#login p:first').text('User name and password not found.');
+        } else {
+          console.log('user found');
+          page('/dashboard');
+        }
+
+      })
+  };
+
+  
+  module.users = users;
+})(app);
