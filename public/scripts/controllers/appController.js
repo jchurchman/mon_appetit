@@ -5,10 +5,17 @@ var app = app || {};
     const appController = {};
 
     appController.index = function () {
-        $('*').hide();
-        $('#welcome').show();
-        $('#login').hide();
+        app.appViewer.initIndexApp();
+        $('#login').on('click', 'a', app.appViewer.showSignUp);
+        $('#signup').on('click', 'a', app.appViewer.showLogIn);
+        app.user.logInListener();
+        app.user.signUpListener();
+    }
 
+    appController.initDashboard = function () {
+        app.appViewer.showDashboard();
+        app.recipeViewer.showRandomRecipe();
+        app.userViewer.greetUser();
     }
 
     module.appController = appController;

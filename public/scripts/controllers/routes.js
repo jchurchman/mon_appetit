@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {};
-page('/', init);
-page('/dashboard', init);
+page('/', init, app.appController.index);
+page('/dashboard', init, app.appController.initDashboard);
 page('/myRecipes', init);
 page('/searchRecipes', init);
 
