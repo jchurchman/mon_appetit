@@ -30,5 +30,11 @@ var app = app || {};
       $('#mainnav').show();
     }
 
+  appViewer.showSearchAll = () => {
+    $('#searchAll').show().siblings().hide();
+    // $('#searchAll select').hide();
+    // $('#searchAll label').hide();
+  }
+
   module.appViewer = appViewer;
 }(app));

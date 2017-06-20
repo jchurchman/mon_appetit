@@ -33,7 +33,8 @@ var app = app || {};
     }
 
     user.queryUserRecipes = () => {
-      cosole.log('app.user.queryUserRecipes is undefined')
+      event.preventDefault();
+      console.log('app.user.queryUserRecipes is undefined')
     }
 
   module.user = user;

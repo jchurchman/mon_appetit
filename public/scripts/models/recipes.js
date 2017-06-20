@@ -2,6 +2,9 @@
 var app = app || {};
 
 (function (module) {
+  function Recipe(rawDataObj) {
+    Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+  }
   const recipe = {};
 
   recipe.queriedRecipes = [];
