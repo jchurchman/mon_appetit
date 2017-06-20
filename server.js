@@ -23,5 +23,19 @@ function proxyBigOven(request, response) {
   }))(request, response);
 }
 
+
+app.get('/login', (request, response) => {
+  console.log('request:', request.query.userName);
+  // let sql = `SELECT * FROM login WHERE $userName === user_name && $password === password`
+
+  // client.query(sql, [request.query.val])
+  //   .then(result => response.send(result.rows))
+  //   .catch(console.error);
+})
+
+
+
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.listen(PORT, () => console.log(`server started on port ${PORT}!`));
+
+
