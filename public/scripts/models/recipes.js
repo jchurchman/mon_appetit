@@ -5,7 +5,7 @@ var app = app || {};
   const recipe = {};
 
   recipe.getRandom = () => {
-    console.log('getting random recipe');
+    console.log('app.recipe.getRandom is undefined');
   }
 
   module.recipe = recipe;

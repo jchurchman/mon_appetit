@@ -5,6 +5,7 @@ var app = app || {};
     const appController = {};
 
     appController.index = function () {
+        console.log('app.appController.index was called');
         app.appViewer.initIndexApp();
         $('#login').on('click', 'a', app.appViewer.showSignUp);
         $('#signup').on('click', 'a', app.appViewer.showLogIn);
@@ -13,6 +14,7 @@ var app = app || {};
     }
 
     appController.initDashboard = function () {
+        console.log('app.appController.initDashboard was called');
         app.appViewer.showDashboard();
         app.recipeViewer.showRandomRecipe();
         app.userViewer.greetUser();
