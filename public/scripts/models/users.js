@@ -5,6 +5,8 @@ var app = app || {};
   const user = {};
 
     user.userInfo = {};
+
+    user.userRecipes = [];
     
     user.logInListener = () => {
       console.log('app.user.logInListener was called');
