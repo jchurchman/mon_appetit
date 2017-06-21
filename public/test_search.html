@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+</head>
+
+<body>
+  <section id="recipe-search">
+<form id="search-form">
+  <h2>Enter search criteria</h2>
+  <label for="text-search">Enter keyword</label>
+  <input id="text-search" type="text">
+  <label for="category-search">Select category</label>
+  <select id="category-search"></select><br><br>
+  <input id="search-button" type="button" value="Search">
+
+
+  </section>
+
+
+  <section id="test">
+    <ul id="test-list">
+      <li id="title"></li>
+      <li id="category"></li>
+      <li id="servings"></li>
+      <li id="photo-url"></li>
+
+
+    </ul>
+    <button class="fill">fill the list</button>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="./scripts/controllers/recipeController.js"></script>
+<script src="./scripts/models/recipes.js"></script>
+<!--<script src="./server.js"></script>-->
+</body>
+</html>

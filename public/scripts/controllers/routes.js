@@ -6,6 +6,7 @@ page('/dashboard', init, app.appController.initDashboard);
 page('/myRecipes', init, app.userController.init);
 page('/searchRecipes', init, app.appController.initSearchAll);
 
+page('/test', init);
 page();
 
 function init(ctx, next) {
