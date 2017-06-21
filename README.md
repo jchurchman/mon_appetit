@@ -14,16 +14,15 @@ For today's developer-on-the-go, it is difficult to figure out "what's for dinne
 * Utilize unique user login for personalized welcome message
 * Create a user database of user's selected recipes (app side database)
 * Recipe is displayed in a clear, readable manner (with image, if available)
-* Ability to access recipe database via Edamam API, filter by ingredient(e.g. chicken, rice, etc)
+* Ability to access recipe database via BigOven API, filter by ingredient(e.g. chicken, rice, etc)
 * Save recipe from API to user profile
-* Recipe-of-the-blah on splash page/user dashboard (recipe cycles per page-load)
 * Search results should be displayed in a readable list format
 * Page is navigated by a vertical header/nav bar docked on the left side of the page (computer screen only)
 
 
 
 #### STRETCH GOALS
-
+* Recipe-of-the-blah on splash page/user dashboard (recipe cycles per page-load)
 * User can apply multiple filters to API search
   *User can filter API search by their own recipes
 * Returned lists are shown in a collapsed state and can be expanded for greater viewability
