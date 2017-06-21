@@ -11,12 +11,30 @@
     <link rel="stylesheet" type="text/css" href="./styles/module.css">
 
     <script id="recipe-card-template" type="text/x-handlebars-template">
-        <div data-recipeid = "{{RecipeID}}">
+
+        <div class="foo" data-recipeid = "{{RecipeID}}">
             <img src="{{PhotoUrl}}">
             <h4>{{Title}}</h4>
             <a href="">Save</a>
             <a href="">Return to search></a>
         </div>
+
+    </script>
+    <script id="recipe-detail-template" type="text/x-handlebars-template">
+    <div data-recipeid = "{{RecipeID}}">
+        <img src="{{PhotoUrl}}">
+        <h2>{{Title}}</h2>
+        <p>{{Description}}</p>
+        <h4>{{Category}}</h4>
+        <ul>{{Ingredients}}</ul>
+        <ul>{{DisplayQuantity}}</ul>
+        <ul>{{Unit}}</ul>
+        <p>{{Instructions}}</p>
+        <p>{{YieldNumber}}</p>
+        <p>{{YieldUnit}}</p>
+        <p>{{TotalMinutes}}</p>
+        <p>{{ActiveMinutes}}</p>
+    </div>
     </script>
 
     <title>Mon Appetit</title>
@@ -105,6 +123,8 @@
                 </fieldset>
             </form>
         <div id="card-container">
+        </div>
+        <div id="recipe-container">
         </div>
         </section>
         <section id="searchMy">

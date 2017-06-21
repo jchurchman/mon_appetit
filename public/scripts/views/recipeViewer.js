@@ -14,6 +14,7 @@ var app = app || {};
   recipeViewer.populateRecipeCards = function () {
     console.log('app.recipe.queriedRecipes: ' + app.recipe.queriedRecipes);
     $('#card-container').append(app.recipe.queriedRecipes.map(app.recipeViewer.renderRecipeCard));
+    app.recipeController.recipeDetailListener();
   }
 
   module.recipeViewer = recipeViewer;

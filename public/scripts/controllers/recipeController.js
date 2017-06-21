@@ -33,6 +33,13 @@ var app = app || {};
     });
   }
 
+  recipeController.recipeDetailListener = () => {
+    $('.foo').on('click', () => {
+      event.preventDefault();
+      alert('hi');
+    })
+  }
+
 
   // // var recipes = [];
   // $('.fills').on('click', function () {
