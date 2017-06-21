@@ -1,53 +1,54 @@
 'use strict'
 var app = app || {};
 
-(function (module){
+(function (module) {
   const user = {};
 
-    user.userInfo = {};
+  user.userInfo = {};
 
-    user.userRecipes = [];
-    
-    user.logInListener = () => {
-      console.log('app.user.logInListener was called');
-      $('#login').on('click', 'button', app.user.queryUserCredentials);
-    }
+  user.userRecipes = [];
 
-    user.signUpListener = () => {
-      console.log('app.user.signUpListener was called');
-      $('#username').on('change', app.user.checkUserName);
-      $('#confirm-password').on('change', user.confirmPassword);
-      $('#signup').on('click', 'button', app.user.saveNewUser)
-    }
+  user.logInListener = () => {
+    console.log('app.user.logInListener was called');
+    $('#login').on('click', 'button', app.user.queryUserCredentials);
+  }
 
-    user.saveNewUser = () => {
-      event.preventDefault();
-      app.user.checkUserName();
-      app.user.saveUserCredentials();
-      page('/dashboard');
-    }
+  user.signUpListener = () => {
+    console.log('app.user.signUpListener was called');
+    $('#username').on('change', app.user.checkUserName);
+    $('#confirm-password').on('change', user.confirmPassword);
+    $('#signup button').hide();
+    // .on('click', 'button', app.user.saveNewUser)
+  }
 
-    user.confirmPassword = function() {
-      console.log('app.user.confirmPassword was called');
-      ($(this).val() !== $('#new-password').val()) ? ($('#signup p:first').text('Passwords do not match!')) : ($('#signup p:first').text('Passwords match.'));
-    }
+  user.saveNewUser = () => {
+    event.preventDefault();
+    app.user.checkUserName();
+    app.user.saveUserCredentials();
+    page('/dashboard');
+  }
 
-    user.checkUserName = () => {console.log('app.user.checkUserName is undefined')}; //perhaps returns a boolean?
-    user.checkPassword = () => {console.log('app.user.checkPassword is undefined')};
-    user.queryUserCredentials = () => {
-      console.log('app.user.queryUserCredentials was called');
-      event.preventDefault();
-      page('/dashboard');
-    }
+  user.confirmPassword = function () {
+    console.log('app.user.confirmPassword was called');
+    ($(this).val() !== $('#new-password').val()) ? ($('#signup p:first').text('Passwords do not match!')) : ($('#signup p:first').text('Passwords match.'), $('#signup button').show());
+  }
 
-    user.saveUserCredentials = () => {
-      console.log('app.user.saveUserCredentials was called');
-    };
+  user.checkUserName = () => { console.log('app.user.checkUserName is undefined') }; //perhaps returns a boolean?
+  user.checkPassword = () => { console.log('app.user.checkPassword is undefined') };
+  user.queryUserCredentials = () => {
+    console.log('app.user.queryUserCredentials was called');
+    event.preventDefault();
+    page('/dashboard');
+  }
 
-    user.queryUserRecipes = () => {
-      event.preventDefault();
-      console.log('app.user.queryUserRecipes is undefined')
-    }
+  user.saveUserCredentials = () => {
+    console.log('app.user.saveUserCredentials was called');
+  };
+
+  user.queryUserRecipes = () => {
+    event.preventDefault();
+    console.log('app.user.queryUserRecipes is undefined')
+  }
 
   module.user = user;
 }(app));
