@@ -1,10 +1,6 @@
 'use strict'
 var app = app || {};
 
-// var recipes = [];
-
-
-// Return list of recipe categories from API and populate select input on form
 (function (module) {
 
 // function Recipe(rawDataObj) {
@@ -27,15 +23,16 @@ var app = app || {};
       app.recipe.queriedRecipes = data.Results;
       callback();
     }, 'json');
-// .then(
-// console.log(recipes),
-// // console.log(recipes[0].Title),
-// $('#title').text(recipes[0].Title),
-// $('#category').text(recipes[0].Category),
-// $('#servings').text(recipes[0].Servings),
-// $('#photo-url').html(`<img src=${recipes[0].PhotoUrl}>`))
-// .then(callback);
   }
+
+  recipe.getSingleRecipe = function (callback) {
+    let recipeId = $(this).data('recipeid').val();
+    $.get(`/searchRecipes/${recipeId}`, function (data) {
+      app.recipe.singleRecipe = data.Results;
+      callback();
+    }, 'json');
+  }
+
   module.recipe = recipe;
 })(app);
 

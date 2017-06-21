@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config()
 // const requestProxy = require('express-request-proxy');
 const superagent = require('superagent');
-const handlebars = require('handlebars');
+require('handlebars');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
@@ -23,8 +23,17 @@ app.use(express.static('./public'));
 
 app.get('/searchRecipes/:text/:category', (request, response) => {
   superagent
-    .get(`https://api2.bigoven.com/recipes?any_kw=${request.params.text}&include_primarycat=${request.params.category}&rpp=20&api_key=1x9xx03CdK3xioV1W8sJXRT3RWw01YAN`)
+    .get(`https://api2.bigoven.com/recipes?any_kw=${request.params.text}&include_primarycat=${request.params.category}&rpp=20&api_key=${process.env.API_KEY}`)
     .end((err, superagentResponse) => {
+      console.log(superagentResponse.body);
+      response.send(superagentResponse.body);
+    });
+});
+
+app.get('/searchRecipes/:recipeId', (request,response) => {
+  superagent
+    .get(`https://api2.bigoven.com/recipe/${request.params.recipeId}&api_key=${process.env.API_KEY}`)
+    .end((err,superagentResponse) => {
       console.log(superagentResponse.body);
       response.send(superagentResponse.body);
     });
@@ -40,8 +49,8 @@ app.get('/login', (request, response) => {
 })
 
 app.put('addUser', (request, response) => {
-console.log('request:', request.query.userName);
-  // let sql = 
+  console.log('request:', request.query.userName);
+  // let sql =
 })
 
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
