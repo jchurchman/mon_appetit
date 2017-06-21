@@ -31,7 +31,8 @@ var app = app || {};
 
   user.logInListener = () => {
     console.log('app.user.logInListener was called');
-    $('#login').on('click', 'button', app.user.queryUserCredentials);
+    $('#login').on('click', 'button', app.userController.checkPreviousUsers);
+
   }
 
   user.signUpListener = () => {

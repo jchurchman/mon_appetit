@@ -3,34 +3,33 @@
 var app = app || {};
 
 (function (module) {
-  var userAuthentication = {};
-  var userCheck = [];
+  const userController = {};
 
-  userAuthentication.check = () => {
+  userController.checkPreviousUsers = () => {
     event.preventDefault();
+    console.log('in usercontroller');
+    let userCheck = [];
     const userName = $('#username').val();
     const password = $('#password').val();
     userCheck = [userName, password];
-    // if passes then go next() to dashboard route
-    app.users.findwhere(userCheck);
+    app.user.findwhere(userCheck);
   };
 
-  const passwordCheck = (password, password_two) => {
+  userController.passwordCheck = (password, password_two) => {
     password!== password_two ? $('#login p:first').text('Passwords do not match.') : password;
   };
 
-  userAuthentication.create = () => {
+  userController.create = () => {
     event.preventDefault();
     const name = $('#name').val();
     const userName = $('#username').val();
     const password = $('#new-password').val();
     const password_two = $('#confirm-password').val();
-    passwordCheck(password, password_two);
+    app.userController.passwordCheck(password, password_two);
     app.users.insert(name, userName, password);
   
   }
 
-  const userController = {};
 
   userController.init = () => {
     console.log('app.userController.init was called');
@@ -41,5 +40,4 @@ var app = app || {};
 
   module.userController = userController;
 
-  module.userAuthentication = userAuthentication;
 })(app);
