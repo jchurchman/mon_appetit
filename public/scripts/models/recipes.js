@@ -41,13 +41,14 @@ var categories = [];
 
     };
 
-    recipe.requestRecipes = function () {
+    recipe.requestRecipes = function (callback) {
         var text = $('#text-search').val();
         var selected = $('#category-search option:selected').text().toLowerCase();
         console.log('search button was clicked, then requestRecipes was called');
         $.get(`/searchRecipes/${text}/${selected}`, function (data) {
-            recipe.test = data.Results;
-            console.log('response: ' + recipe.test);
+            app.recipe.queriedRecipes = data.Results;
+            console.log('queriedRecipes =' + app.recipe.queriedRecipes);
+            callback();
         }, 'json');
         // .then(
         // console.log(recipes),
@@ -61,7 +62,4 @@ var categories = [];
     module.recipe = recipe;
 })(app);
 
-$(document).ready(function () {
-    $('#search-button').click(app.recipe.requestRecipes);
 
-});

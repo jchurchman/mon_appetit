@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+  <script id="recipe-card-template" type="text/x-handlebars-template">
+    <div data-recipeid = "{{RecipeID}}">
+        <img src="{{PhotoUrl}}">
+        <h4>{{Title}}</h4>
+        <a href="">Save</a>
+        <a href="">Return to search></a>
+    </div>
+    </script>
 </head>
 
 <body>
   <section id="recipe-search">
-<form id="search-form">
-  <h2>Enter search criteria</h2>
-  <label for="text-search">Enter keyword</label>
-  <input id="text-search" type="text">
-  <label for="category-search">Select category</label>
-  <select id="category-search"></select><br><br>
-  <input id="search-button" type="button" value="Search">
+    <form id="search-form">
+      <h2>Enter search criteria</h2>
+      <label for="text-search">Enter keyword</label>
+      <input id="text-search" type="text">
+      <label for="category-search">Select category</label>
+      <select id="category-search"></select><br><br>
+      <input id="search-button" type="button" value="Search">
 
 
   </section>
 
+  <aside id="card-container">
+
+  </aside>
 
   <section id="test">
     <ul id="test-list">
@@ -28,9 +40,27 @@
     </ul>
     <button class="fill">fill the list</button>
   </section>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="./scripts/controllers/recipeController.js"></script>
-<script src="./scripts/models/recipes.js"></script>
-<!--<script src="./server.js"></script>-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.amd.js"></script>
+  <script src="./scripts/models/recipes.js"></script>
+  <script src="./scripts/views/recipeViewer.js"></script>
+  <script src="./scripts/controllers/recipeController.js"></script>
+
+  <!--<script src="/scripts/models/users.js"></script>
+    <script src="/scripts/models/app.js"></script>
+    <script src="/scripts/models/comments.js"></script>
+    <script src="/scripts/models/recipes.js"></script>
+    <script src="/scripts/views/userViewer.js"></script>
+    <script src="/scripts/views/appViewer.js"></script>
+    <script src="/scripts/views/commentViewer.js"></script>
+    <script src="/scripts/views/recipeViewer.js"></script>
+    <script src="/scripts/controllers/appController.js"></script>
+    <script src="/scripts/controllers/commentController.js"></script>
+    <script src="/scripts/controllers/recipeController.js"></script>
+    <script src="/scripts/controllers/userController.js"></script>
+    <script src="/scripts/controllers/routes.js"></script>-->
+  <!--<script src="./server.js"></script>-->
 </body>
+
 </html>

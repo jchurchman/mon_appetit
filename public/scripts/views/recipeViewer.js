@@ -10,9 +10,10 @@ var app = app || {};
     console.log('got random recipe, need to put it in the DOM');
   }
 
-  recipeViewer.displayRecipes = (recipeArray) => {
-    
-    //takes recipe array and populates page with minimized recipe cards
+  recipeViewer.renderRecipeCard = Handlebars.compile($('#recipe-card-template').text());
+  recipeViewer.populateRecipeCards = function () {
+    console.log('app.recipe.queriedRecipes: ' + app.recipe.queriedRecipes);
+    $('#card-container').append(app.recipe.queriedRecipes.map(app.recipeViewer.renderRecipeCard));
   }
 
   module.recipeViewer = recipeViewer;
