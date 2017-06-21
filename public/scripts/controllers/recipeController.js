@@ -1,4 +1,13 @@
 'use strict';
+
+var app = app || {};
+
+(function (module) {
+  const recipeController = {};
+
+  module.recipeController = recipeController;
+}(app));
+
 var recipes = [];
 $('.fills').on('click', function(){
   // var data = proxyBigOven();

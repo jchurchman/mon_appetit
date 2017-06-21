@@ -25,8 +25,8 @@ var app = app || {};
   userViewer.showMySearch = () => {
     console.log('app.userViewer.showMySearch was called');
     $('#searchMy').show().siblings().hide();
-    $('#searchMy select').hide();
-    $('#searchMy label').hide();
+    // $('#searchMy select').hide();
+    // $('#searchMy label').hide();
   }
 
   userViewer.showMyRecipes = () => {

@@ -6,6 +6,11 @@ var categories = [];
 
 // Return list of recipe categories from API and populate select input on form
 (function (module) {
+  
+  // function Recipe(rawDataObj) {
+  //   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+  // }
+
     const recipe = {};
     $.ajax({
         type: 'GET',
