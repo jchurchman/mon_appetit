@@ -6,10 +6,10 @@ var categories = [];
 
 // Return list of recipe categories from API and populate select input on form
 (function (module) {
-  
-  // function Recipe(rawDataObj) {
-  //   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-  // }
+
+    // function Recipe(rawDataObj) {
+    //   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+    // }
 
     const recipe = {};
     $.ajax({
@@ -31,30 +31,32 @@ var categories = [];
         }
     });
 
-  recipe.queriedRecipes = [];
+    recipe.queriedRecipes = [];
 
-  recipe.getRandom = () => {
-    console.log('app.recipe.getRandom is undefined');
-  }
+    recipe.getRandom = () => {
+        console.log('app.recipe.getRandom is undefined');
+    }
 
-  recipe.queryRecipes = () => {
+    recipe.queryRecipes = () => {
 
-  };
-  
+    };
+
     recipe.requestRecipes = function () {
         var text = $('#text-search').val();
         var selected = $('#category-search option:selected').text().toLowerCase();
         console.log('search button was clicked, then requestRecipes was called');
-        var recipeRequest = $.get(`/searchRecipes/${text}/${selected}`);
-        console.log('recipeRequest: ' + recipeRequest);
-            // .then(
-            // console.log(recipes),
-            // // console.log(recipes[0].Title),
-            // $('#title').text(recipes[0].Title),
-            // $('#category').text(recipes[0].Category),
-            // $('#servings').text(recipes[0].Servings),
-            // $('#photo-url').html(`<img src=${recipes[0].PhotoUrl}>`))
-            // .then(callback);
+        $.get(`/searchRecipes/${text}/${selected}`, function (data) {
+            recipe.test = data.Results;
+            console.log('response: ' + recipe.test);
+        }, 'json');
+        // .then(
+        // console.log(recipes),
+        // // console.log(recipes[0].Title),
+        // $('#title').text(recipes[0].Title),
+        // $('#category').text(recipes[0].Category),
+        // $('#servings').text(recipes[0].Servings),
+        // $('#photo-url').html(`<img src=${recipes[0].PhotoUrl}>`))
+        // .then(callback);
     }
     module.recipe = recipe;
 })(app);

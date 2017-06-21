@@ -1,6 +1,5 @@
 'use strict';
 
-var recipes = [];
 const pg = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -23,8 +22,7 @@ app.get('/searchRecipes/:text/:category', (request, response) => {
   superagent
     .get(`https://api2.bigoven.com/recipes?any_kw=${request.params.text}&include_primarycat=${request.params.category}&rpp=20&api_key=1x9xx03CdK3xioV1W8sJXRT3RWw01YAN`)
     .end((err, superagentResponse) => {
-
-      console.log(superagentResponse.body.Results);
+      console.log(superagentResponse.body);
       response.send(superagentResponse.body);
     });
 });
