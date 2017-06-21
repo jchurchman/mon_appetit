@@ -26,6 +26,16 @@ var categories = [];
         }
     });
 
+  recipe.queriedRecipes = [];
+
+  recipe.getRandom = () => {
+    console.log('app.recipe.getRandom is undefined');
+  }
+
+  recipe.queryRecipes = () => {
+
+  };
+  
     recipe.requestRecipes = function () {
         var text = $('#text-search').val();
         var selected = $('#category-search option:selected').text().toLowerCase();

@@ -3,11 +3,32 @@
 var app = app || {};
 
 (function (module) {
-    const appViewer = {};
+  const appViewer = {};
 
-    appViewer.initIndexApp = () => {
-
+  appViewer.initIndexApp = () => {
+    console.log('app.appViewer.initIndexApp was called');
+      $('#welcome').show().siblings().hide();
+      $('#mainnav').hide();
+      $('#login').hide();
     }
 
-    module.appViewer = appViewer;
+  appViewer.showSignUp = () => {
+    console.log('app.appViewer.showSignUp was called');
+      $('#login').hide()
+      $('#signup').show();
+    }
+
+  appViewer.showLogIn = () => {
+    console.log('app.appViewer.showLogIn was called');
+      $('#signup').hide()
+      $('#login').show();
+    }
+
+  appViewer.showDashboard = () => {
+    console.log('app.appViewer.showDashboard was called');
+      $('#dashboard').show().siblings().hide();
+      $('#mainnav').show();
+    }
+
+  module.appViewer = appViewer;
 }(app));

@@ -30,9 +30,13 @@
                 </li>
                 <li>
                     <a href="/searchRecipes">
-                    <span data-icon="icon code" class="icon-????">My Recipes</span>
+                    <span data-icon="icon code" class="icon-????">Search Recipes</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/">
+                    <span data-icon="icon code" class="icon-????">Logout</span>
+                    </a>
             </ul>
         </div>
     </header>
@@ -42,7 +46,7 @@
             <form id="login">
                 <fieldset>
                     <input type="text" placeholder="username" id="username" required>
-                    <input type="text" placeholder="password" id="password" required>
+                    <input type="password" placeholder="password" id="password" required>
                     <button type="submit" class="button"><span>Submit</span></button>
                     <p>Not a member? <a>Click here to sign up.</a></p>
                 </fieldset>
@@ -51,8 +55,9 @@
                 <fieldset>
                     <input type="text" placeholder="name" id="name" required>
                     <input type="text" placeholder="username" id="username" required>
-                    <input type="text" placeholder="password" id="new-password" required>
-                    <input type="text" placeholder="password" id="confirm-password" required>
+                    <input type="password" placeholder="Enter Password Here" id="new-password" required>
+                    <input type="password" placeholder="Please retype password" id="confirm-password" required>
+                    <p></p>
                     <button type="submit" class="button"><span>Submit</span></button>
                     <p>Already a member? <a>Click here to log in.</a></p>
                 </fieldset>
@@ -60,6 +65,7 @@
             <img>
         </section>
         <section id="dashboard">
+            <h2></h2>
             <div id="randomrecipe" class="longrecipe">
                 <img src={{photoURL}}>
                 <h3>{{title}}</h3>
@@ -97,7 +103,14 @@
                 <fieldset>
                     <input type="text" placeholder="Enter recipe keyword(s) here">
                     <button type="submit" class="button"><span>Search</span></button>
-
+                    <label for="select" class="control-label">Filter By:</label>
+                    <select name="category">
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                        <option>Type of Category</option>
+                    </select>
                 </fieldset>
             </form>
             <li>
@@ -113,19 +126,24 @@
     <!--<script src="/vendor/scripts/marked.js"></script>
     <script src="vendor/scripts/highlight.pack.js"></script>-->
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="/scripts/models/users.js"></script>
+    <script src="/scripts/models/app.js"></script>
+    <script src="/scripts/models/comments.js"></script>
+    <script src="/scripts/models/recipes.js"></script>
     <script src="/scripts/controllers/appController.js"></script>
     <script src="/scripts/controllers/commentController.js"></script>
     <script src="/scripts/controllers/recipeController.js"></script>
     <script src="/scripts/controllers/userController.js"></script>
     <script src="/scripts/controllers/routes.js"></script>
-    <script src="/scripts/models/app.js"></script>
-    <script src="/scripts/models/comments.js"></script>
-    <script src="/scripts/models/recipes.js"></script>
-    <script src="/scripts/models/users.js"></script>
     <script src="/scripts/views/userViewer.js"></script>
     <script src="/scripts/views/appViewer.js"></script>
     <script src="/scripts/views/commentViewer.js"></script>
     <script src="/scripts/views/recipeViewer.js"></script>
+    <script src="/scripts/controllers/appController.js"></script>
+    <script src="/scripts/controllers/commentController.js"></script>
+    <script src="/scripts/controllers/recipeController.js"></script>
+    <script src="/scripts/controllers/userController.js"></script>
+    <script src="/scripts/controllers/routes.js"></script>
 </body>
 
 </html>
