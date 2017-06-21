@@ -26,3 +26,12 @@ $('.fills').on('click', function(){
     }
   })
 })
+
+$(document).ready(function () {
+    $('#search-button').click(function () {
+      app.recipe.requestRecipes(function () {
+        console.log('the error is here!', 'app: ' + app);
+      });
+    });
+
+});

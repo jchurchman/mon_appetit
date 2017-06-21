@@ -9,6 +9,15 @@
     <link type="stylesheet" src="./styles/base.css">
     <link type="stylesheet" src="./styles/layout.css">
     <link type="stylesheet" src="./styles/module.css">
+   
+    <script id="recipe-card-template" type="text/x-handlebars-template">
+    <div data-recipeid = "{{RecipeID}}">
+        <img src="{{PhotoUrl}}">
+        <h4>{{Title}}</h4>
+        <a href="">Save</a>
+        <a href="">Return to search></a>
+    </div>
+    </script>
 
     <title>Mon Appetit</title>
 </head>
@@ -100,8 +109,9 @@
                     <button type="submit" class="button"><span>Search</span></button>
                 </fieldset>
             </form>
-            <li>
-            </li>
+        <aside id="card-container">
+
+            </aside>
         </section>
         <section id="searchMy">
             <form>
