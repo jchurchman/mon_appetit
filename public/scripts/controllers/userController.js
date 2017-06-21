@@ -34,7 +34,7 @@ var app = app || {};
   userController.init = () => {
     console.log('app.userController.init was called');
     app.userViewer.initMySearchPage();
-    $('#searchMy').on('click', 'button', app.user.queryUserRecipes)
+    $('#searchMy').on('submit', app.user.queryUserRecipes)
   }
 
 

@@ -9,9 +9,8 @@ var app = app || {};
     app.appViewer.initIndexApp();
     $('#login').on('click', 'a', app.appViewer.showSignUp);
     $('#signup').on('click', 'a', app.appViewer.showLogIn);
-    // $('#login button').on('submit', app.userController.checkPreviousUsers);
+    // $('#login submit').on('submit', app.userController.checkPreviousUsers);
     // $('#signup').on('submit', app.userController.create);
-
     app.user.logInListener();
     app.user.signUpListener();
   }
@@ -26,7 +25,9 @@ var app = app || {};
   appController.initSearchAll = function () {
     console.log('app.appController.initSearchAll was called');
     app.appViewer.showSearchAll();
-    $('#searchAll').on('click', 'button', app.recipe.queryRecipes);
+    $('#searchAll submit').on('submit', app.recipe.queryRecipes);
+    app.recipeController.initCategoryFilter();
+    app.recipeController.searchListener();
   }
 
   module.appController = appController;

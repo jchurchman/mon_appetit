@@ -1,65 +1,42 @@
 'use strict'
 var app = app || {};
-var categories = [];
+
 // var recipes = [];
 
 
 // Return list of recipe categories from API and populate select input on form
 (function (module) {
 
-    // function Recipe(rawDataObj) {
-    //   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-    // }
+// function Recipe(rawDataObj) {
+//   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+// }
 
-    const recipe = {};
-    $.ajax({
-        type: 'GET',
-        url: 'https://api2.bigoven.com/recipe/categories?api_key=1x9xx03CdK3xioV1W8sJXRT3RWw01YAN',
-        dataType: 'json',
-        success: function (data) {
-            let filterCategories = function (category) {
-                return category.ParentID === 0;
-            }
-            categories = data.filter(filterCategories);
+  const recipe = {};
 
-            $.each(categories, function (i, item) {
-                $('#category-search').append($('<option>', {
-                    value: item.ID,
-                    text: item.Category
-                }));
-            });
-        }
-    });
+  recipe.queriedRecipes = ['greek salad'];
 
-    recipe.queriedRecipes = [];
+  recipe.getRandom = () => {
+    console.log('app.recipe.getRandom is undefined');
+  }
 
-    recipe.getRandom = () => {
-        console.log('app.recipe.getRandom is undefined');
-    }
-
-    recipe.queryRecipes = () => {
-
-    };
-
-    recipe.requestRecipes = function (callback) {
-        var text = $('#text-search').val();
-        var selected = $('#category-search option:selected').text().toLowerCase();
-        console.log('search button was clicked, then requestRecipes was called');
-        $.get(`/searchRecipes/${text}/${selected}`, function (data) {
-            app.recipe.queriedRecipes = data.Results;
-            console.log('queriedRecipes =' + app.recipe.queriedRecipes);
-            callback();
-        }, 'json');
-        // .then(
-        // console.log(recipes),
-        // // console.log(recipes[0].Title),
-        // $('#title').text(recipes[0].Title),
-        // $('#category').text(recipes[0].Category),
-        // $('#servings').text(recipes[0].Servings),
-        // $('#photo-url').html(`<img src=${recipes[0].PhotoUrl}>`))
-        // .then(callback);
-    }
-    module.recipe = recipe;
+  recipe.requestRecipes = function (callback) {
+    var text = $('#text-search').val();
+    var selected = $('#category-search option:selected').text().toLowerCase();
+    console.log('search button was clicked, then requestRecipes was called');
+    $.get(`/searchRecipes/${text}/${selected}`, function (data) {
+      app.recipe.queriedRecipes = data.Results;
+      callback();
+    }, 'json');
+// .then(
+// console.log(recipes),
+// // console.log(recipes[0].Title),
+// $('#title').text(recipes[0].Title),
+// $('#category').text(recipes[0].Category),
+// $('#servings').text(recipes[0].Servings),
+// $('#photo-url').html(`<img src=${recipes[0].PhotoUrl}>`))
+// .then(callback);
+  }
+  module.recipe = recipe;
 })(app);
 
 

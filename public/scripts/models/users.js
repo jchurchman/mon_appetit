@@ -31,7 +31,7 @@ var app = app || {};
 
   user.logInListener = () => {
     console.log('app.user.logInListener was called');
-    $('#login').on('click', 'button', app.userController.checkPreviousUsers);
+    $('#login').on('submit', app.userController.checkPreviousUsers);
 
   }
 
@@ -39,7 +39,7 @@ var app = app || {};
     console.log('app.user.signUpListener was called');
     $('#username').on('change', app.user.checkUserName);
     $('#confirm-password').on('change', user.confirmPassword);
-    $('#signup button').hide();
+    $('#signup submit').hide();
     // .on('click', 'button', app.user.saveNewUser)
   }
 
