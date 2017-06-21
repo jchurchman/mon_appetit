@@ -9,8 +9,6 @@ var app = app || {};
     app.appViewer.initIndexApp();
     $('#login').on('click', 'a', app.appViewer.showSignUp);
     $('#signup').on('click', 'a', app.appViewer.showLogIn);
-    // $('#login submit').on('submit', app.userController.checkPreviousUsers);
-    // $('#signup').on('submit', app.userController.create);
     app.user.logInListener();
     app.user.signUpListener();
   }
