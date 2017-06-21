@@ -3,6 +3,7 @@
 const pg = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config()
 // const requestProxy = require('express-request-proxy');
 const superagent = require('superagent');
 const handlebars = require('handlebars');
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 
-const conString = 'postgres://postgress:1234@localhost:5432/MonAppetit';
+const conString = process.env.PG_CONSTRING;
 const client = new pg.Client(conString);
 client.connect();
 client.on('error', err => console.error(err));
