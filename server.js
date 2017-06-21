@@ -33,6 +33,11 @@ app.get('/login', (request, response) => {
     .catch(console.error);
 })
 
+app.put('addUser', (request, response) => {
+console.log('request:', request.query.userName);
+  // let sql = 
+})
+
 
 
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
