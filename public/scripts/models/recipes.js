@@ -1,9 +1,12 @@
 'use strict'
-
+var app = app || {};
 var categories = [];
+// var recipes = [];
+
 
 // Return list of recipe categories from API and populate select input on form
-(function () {
+(function (module) {
+    const recipe = {};
     $.ajax({
         type: 'GET',
         url: 'https://api2.bigoven.com/recipe/categories?api_key=1x9xx03CdK3xioV1W8sJXRT3RWw01YAN',
@@ -23,27 +26,25 @@ var categories = [];
         }
     });
 
-})();
-
-function submitSearch(text, selection) {
-    var pre_url = 'https://api2.bigoven.com/recipes?';
-    var rpp = 20;
-    console.log(pre_url);
-    var apiRequest = `${process.env.PRE_URL} any_kw=${text} & include_cat= ${selection} & rpp= ${process.env.RPP} & api_key= ${process.env.API_KEY}`;
-    console.log(apiRequest);
-    $.get(apiRequest, function (data) {
-        console.log('api response: ', data);
-        recipes = data.Results;
-        console.log(recipes[0].Title);
-        $('#title').text(recipes[0].Title);
-        $('#category').text(recipes[0].Category);
-        $('#servings').text(recipes[0].Servings);
-        $('#photo-url').html(`<img src=${recipes[0].PhotoUrl}>`);
-    })
-}
+    recipe.requestRecipes = function () {
+        var text = $('#text-search').val();
+        var selected = $('#category-search option:selected').text().toLowerCase();
+        console.log('search button was clicked, then requestRecipes was called');
+        var recipeRequest = $.get(`/searchRecipes/${text}/${selected}`);
+        console.log('recipeRequest: ' + recipeRequest);
+            // .then(
+            // console.log(recipes),
+            // // console.log(recipes[0].Title),
+            // $('#title').text(recipes[0].Title),
+            // $('#category').text(recipes[0].Category),
+            // $('#servings').text(recipes[0].Servings),
+            // $('#photo-url').html(`<img src=${recipes[0].PhotoUrl}>`))
+            // .then(callback);
+    }
+    module.recipe = recipe;
+})(app);
 
 $(document).ready(function () {
-    $('#search-button').click(function () {
-        submitSearch($('#text-search').val(), $('category-search').val());
-    });
+    $('#search-button').click(app.recipe.requestRecipes);
+
 });
