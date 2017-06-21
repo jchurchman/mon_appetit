@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 
-const conString = 'postgres://localhost:5432/MonAppetit';
+const conString = 'postgres://postgress:1234@localhost:5432/MonAppetit';
 const client = new pg.Client(conString);
 client.connect();
 client.on('error', err => console.error(err));

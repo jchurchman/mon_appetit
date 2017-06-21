@@ -17,4 +17,4 @@ var app = app || {};
   }
 
   module.recipeViewer = recipeViewer;
-}(app))
+}(app));
