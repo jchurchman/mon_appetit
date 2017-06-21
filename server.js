@@ -6,10 +6,12 @@ const bodyParser = require('body-parser');
 const requestProxy = require('express-request-proxy');
 const PORT = process.env.PORT || 3000;
 const app = express();
-// const conString = 'postgres://localhost:5432/kilovolt';
-// const client = new pg.Client(conString);
-// client.connect();
-// client.on('error', err => console.error(err));
+
+const conString = 'postgres://localhost:5432/MonAppetit';
+const client = new pg.Client(conString);
+client.connect();
+client.on('error', err => console.error(err));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,5 +25,24 @@ function proxyBigOven(request, response) {
   }))(request, response);
 }
 
+
+app.get('/login', (request, response) => {
+  // console.log('request:', request.query.userName);
+  let sql = `SELECT * FROM users WHERE username = $1 AND password = $2`
+
+  client.query(sql, request.query.userCheck)
+    .then(result => response.send(result.rows))
+    .catch(console.error);
+})
+
+app.put('addUser', (request, response) => {
+console.log('request:', request.query.userName);
+  // let sql = 
+})
+
+
+
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.listen(PORT, () => console.log(`server started on port ${PORT}!`));
+
+
