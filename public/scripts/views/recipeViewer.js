@@ -11,6 +11,7 @@ var app = app || {};
   }
 
   recipeViewer.renderRecipeCard = Handlebars.compile($('#recipe-card-template').text());
+  
   recipeViewer.populateRecipeCards = function () {
     console.log('app.recipe.queriedRecipes: ' + app.recipe.queriedRecipes);
     $('#card-container').append(app.recipe.queriedRecipes.map(app.recipeViewer.renderRecipeCard));
