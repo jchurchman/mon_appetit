@@ -27,13 +27,19 @@ var app = app || {};
     const password_two = $('#confirm-password').val();
     passwordCheck(password, password_two);
     app.users.insert(name, userName, password);
-
   
+  }
 
+  const userController = {};
+
+  userController.init = () => {
+    console.log('app.userController.init was called');
+    app.userViewer.initMySearchPage();
+    $('#searchMy').on('click', 'button', app.user.queryUserRecipes)
   }
 
 
-
+  module.userController = userController;
 
   module.userAuthentication = userAuthentication;
 })(app);
