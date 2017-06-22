@@ -44,7 +44,7 @@ app.get('/login', (request, response) => {
   let sql = `SELECT * FROM users WHERE username = $1 AND password = $2`
 
   client.query(sql, request.query.userCheck)
-    .then(result => response.send(result.rows))
+    .then(result => response.send(result.rows[0]))
     .catch(console.error);
 })
 
