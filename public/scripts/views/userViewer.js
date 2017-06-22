@@ -28,6 +28,24 @@ var app = app || {};
 
   userViewer.showMyRecipes = () => {
     console.log('app.userViewer.showMyRecipes was called');
+    let userId = app.user.userInfo.user_id;
+    console.log(userId);
+
+    $.get('/myRecipes', { userId: userId })
+      .then((userInfo) => { 
+        if (userInfo !== null) {
+          console.log('found recipes'); // $('#').text('No recipes found.'); What html tag to put this in?
+        } else {
+          console.log('recipes not found', userInfo);
+          // figure out what to do here
+        }
+
+      })
+
+
+
+
+
     //call to user model to grab user's recipes and populate them
   }
 
