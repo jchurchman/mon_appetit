@@ -21,12 +21,12 @@ var app = app || {};
 
       })
   };
+
   user.insert = function(name, userName, password) {
     console.log('in users insert');
     $.put('/addUser', {name: name, userName: userName, password: password})
       .then((data) => {console.log('got new data', data)});
   }
-
 
   user.userRecipes = [];
 

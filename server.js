@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('./public'));
 
-app.get('/searchRecipes/:text/:category', (request, response) => {
+app.get('/bigoven/:text/:category', (request, response) => {
   superagent
     .get(`https://api2.bigoven.com/recipes?any_kw=${request.params.text}&include_primarycat=${request.params.category}&rpp=20&api_key=${process.env.API_KEY}`)
     .end((err, superagentResponse) => {
@@ -29,7 +29,7 @@ app.get('/searchRecipes/:text/:category', (request, response) => {
     });
 });
 
-app.get('/searchRecipes/:recipeId', (request,response) => {
+app.get('/bigoven/:recipeId', (request,response) => {
   superagent
     .get(`https://api2.bigoven.com/recipe/${request.params.recipeId}?api_key=${process.env.API_KEY}`)
     .end((err,superagentResponse) => {

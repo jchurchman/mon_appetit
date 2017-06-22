@@ -30,9 +30,14 @@ var app = app || {};
 
   recipeViewer.populateDetailedRecipe = function (data) {
     console.log('recipeViewer.populateDetailedRecipe was called ', data);
+    $('#recipe-container').html(' ');
     $('#recipe-container').append(app.recipeViewer.renderDetailedRecipe(data));
-    // $('#recipe-container').append(app.recipeViewer.renderRecipeIngredients(data.Ingredients));
     $('#recipe-container table').append(data.Ingredients.map( ingredient => app.recipeViewer.renderRecipeIngredients(ingredient) ))
+    app.recipeController.saveRecipeListener();
+    app.recipeController.backToSearchListener();
+  }
+
+  recipeViewer.showDetailedRecipe = () => {
     $('#card-container').hide();
     $('#recipe-container').show();
   }

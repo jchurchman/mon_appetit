@@ -15,27 +15,28 @@ var app = app || {};
     console.log('app.recipe.getRandom is undefined');
   }
 
-  recipe.requestRecipes = function (callback) {
-    var text = $('#text-search').val();
-    var selected = $('#category-search option:selected').text().toLowerCase();
+  recipe.requestRecipes = function (text, selected, callback) {
+    // var text = $('#text-search').val();
+    // var selected = $('#category-search option:selected').text().toLowerCase();
     console.log('search button was clicked, then requestRecipes was called');
-    $.get(`/searchRecipes/${text}/${selected}`, function (data) {
+    $.get(`/bigoven/${text}/${selected}`, function (data) {
       app.recipe.queriedRecipes = data.Results;
       callback();
     }, 'json');
+    // page(`/searchRecipes/${text}/${selected}`)
   }
 
   recipe.getSingleRecipe = function (targetId, callback) {
-    $.get(`/searchRecipes/${targetId}`, function (data) {
+    $.get(`/bigoven/${targetId}`, function (data) {
       console.log('data.Title is ', data.Title);
       app.recipe.singleRecipe = data;
       callback(data);
     }, 'json');
   }
 
-  recipe.saveRecipe = function (targetId) {
+
+  recipe.saveRecipe = function (recipeId) {
     // let recipeId = $(this).data('recipeid').val();
-    let recipeId = targetId;
     let userId = app.user.userInfo.user_id;
     console.log('in saveRecipe', recipeId);
     $.post('/myRecipes', { recipeId: recipeId, userId: userId }, response => console.log(response), 'json');
