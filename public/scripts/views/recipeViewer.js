@@ -18,6 +18,13 @@ var app = app || {};
     app.recipeController.saveRecipeListener();
   }
 
+  recipeViewer.populateMyRecipes = function (userInfo) {
+    console.log('in populateMyRecipes');
+    $('#searchMy .card-container').append(userInfo.map(app.recipeViewer.renderRecipeCard));
+    app.recipeController.recipeDetailListener();
+    // app.recipeController.saveRecipeListener();
+  }
+
   recipeViewer.renderDetailedRecipe = function(data) {
     var template = Handlebars.compile($('#recipe-detail-template').text());
     return template(data);

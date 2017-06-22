@@ -64,10 +64,10 @@ app.post('/myRecipes', (request, response) => {
   // i'm adding a recipe to the recipe table
   var numRecipeId = Number(request.body.recipeId);
   var numUserId = Number(request.body.userId);
-  console.log('this is the request body', numRecipeId, numUserId, request.body.recipeTitle, request.body.recipeImgUrl);
-  let sql = 'INSERT INTO recipes(recipe_id, user_id, title, img) VALUES($1, $2, $3, $4)'
+  console.log('this is the request body', numRecipeId, numUserId, request.body.recipeImgUrl, request.body.recipeTitle);
+  let sql = 'INSERT INTO recipes(recipe_id, user_id, img, title) VALUES($1, $2, $3, $4)'
 
-  client.query(sql, [numRecipeId, numUserId, request.body.recipeTitle, request.body.recipeImgUrl], function(err){
+  client.query(sql, [numRecipeId, numUserId, request.body.recipeImgUrl, request.body.recipeTitle], function(err){
     if (err) console.log('error:', err);
   })
 })
