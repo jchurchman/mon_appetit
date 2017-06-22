@@ -37,7 +37,7 @@ var app = app || {};
   }
 
   recipeController.recipeDetailListener = () => {
-    $('#card-container').on('click', '.view', () => {
+    $('.card-container').on('click', '.view', () => {
       event.preventDefault();
 
       var targetId = $(event.target).parent().data('recipeid');

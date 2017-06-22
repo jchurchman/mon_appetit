@@ -7,7 +7,7 @@ var app = app || {};
 
   appViewer.initIndexApp = () => {
     console.log('app.appViewer.initIndexApp was called');
-    $('#mainnav').hide();
+    $('header').hide();
     $('#welcome').show().siblings().hide();
     $('#signup').hide();
   }
@@ -27,7 +27,7 @@ var app = app || {};
   appViewer.showDashboard = () => {
     console.log('app.appViewer.showDashboard was called');
     $('#dashboard').show().siblings().hide();
-    $('#mainnav').show();
+    $('header').show();
   }
 
   appViewer.showSearchAll = () => {

@@ -1,0 +1,54 @@
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 15vw;
+  text-align: center;
+  min-width: 130px;
+  height: 100%;
+}
+
+section:not(#welcome) {
+  padding-left: 15vw;
+  
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+fieldset {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+#welcome form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+  min-width: 300px;
+}
+
+#welcome fieldset {
+  width: 100%;
+}
+
+#welcome input {
+  margin: 2vw 1.5vw 1vw;
+}

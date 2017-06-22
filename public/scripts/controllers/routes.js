@@ -15,6 +15,5 @@ page();
 
 function init(ctx, next) {
   console.log('routes.js init function was called')
-  console.log('ctx is ', ctx);
   next(ctx);
 }
