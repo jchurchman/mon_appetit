@@ -29,5 +29,12 @@ var app = app || {};
     $('#recipe-container').hide();
   }
 
+  appController.logout = () => {
+    app.recipe.queriedRecipes = ['greek salad'];
+    app.user.userRecipes = [];
+    app.user.userInfo = [];
+    page('/');
+  }
+
   module.appController = appController;
 }(app))

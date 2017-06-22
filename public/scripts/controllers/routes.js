@@ -8,7 +8,7 @@ page('/myRecipes/*', init);
 page('/searchRecipes', init, app.appController.initSearchAll);
 page('/searchRecipes/*', init);
 page('/expandRecipe', init, app.recipeViewer.showDetailedRecipe);
-// page('/logout');
+page('/logout', app.appController.logout);
 
 page('/test', init);
 page();
