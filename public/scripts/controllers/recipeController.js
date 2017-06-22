@@ -34,10 +34,6 @@ var app = app || {};
   }
 
   recipeController.recipeDetailListener = () => {
-    // $('.foo').on('click', () => {
-    //   event.preventDefault();
-    //   alert('hi');
-    // })
     $('#card-container').on('click', '.view', () => {
       event.preventDefault();
 
@@ -49,8 +45,11 @@ var app = app || {};
   }
 
   recipeController.saveRecipeListener = () => {
-    event.preventDefault();
-    var targetId = $(event.target).parent().data('recipeid');
+    $('section').on('click', '.add', () => {
+      event.preventDefault();
+      var targetId = $(event.target).parent().data('recipeid');
+      app.recipe.saveRecipe();
+    })
 
   }
 
