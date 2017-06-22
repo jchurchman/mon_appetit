@@ -38,7 +38,7 @@ var app = app || {};
           $('#searchMy .card-container').text('No recipes found');
         } else {
           console.log('found recipes', userInfo);
-          app.recipeViewer.populateRecipeCards(userInfo);
+          app.recipeViewer.populateMyRecipes(userInfo);
         }
 
       })
