@@ -33,9 +33,9 @@
         <p>{{YieldNumber}} {{YieldUnit}}</p>
         <p>Total Cook Time: {{TotalMinutes}}</p>
         <p>Prep Time: {{ActiveMinutes}}</p>
-        <input type="submit" class="add" value="Add to My Recipes">
-        <!--<input type="submit" class="view" value="View Detailed Recipe">-->
-        <input type="submit" class="return" value="Back">
+        <input type="submit" class="add" -value="Add to My Recipes">
+        <!--<input type="submit" class="view" -value="View Detailed Recipe">-->
+        <input type="submit" class="return" -value="Back">
     </div>
     </script>
     <script id="recipe-ingredients-template" type="text/x-handlebars-template">
@@ -136,8 +136,8 @@
             </form>
         <div id="card-container">
         </div>
-        <div id="recipe-container">
-        </div>
+        </section>
+        <section id="recipe-container">
         </section>
         <section id="searchMy">
             <form>

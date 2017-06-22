@@ -34,10 +34,6 @@ var app = app || {};
   }
 
   recipeController.recipeDetailListener = () => {
-    // $('.foo').on('click', () => {
-    //   event.preventDefault();
-    //   alert('hi');
-    // })
     $('#card-container').on('click', '.view', () => {
       event.preventDefault();
 
