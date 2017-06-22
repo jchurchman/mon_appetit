@@ -29,7 +29,10 @@ var app = app || {};
   recipeController.searchListener = () => {
     $('#searchAll').on('submit', () => {
       event.preventDefault();
-      app.recipe.requestRecipes(app.recipeViewer.populateRecipeCards)
+      let text = $('#text-search').val();
+      let selected = $('#category-search option:selected').text().toLowerCase();
+      // page(`/searchRecipes/${text}/${selected}`)
+      app.recipe.requestRecipes(text, selected, app.recipeViewer.populateRecipeCards)
     });
   }
 
@@ -40,6 +43,7 @@ var app = app || {};
       var targetId = $(event.target).parent().data('recipeid');
 
       app.recipe.getSingleRecipe(targetId, app.recipeViewer.populateDetailedRecipe)
+      page('/expandRecipe')
     })
 
   }
@@ -48,9 +52,16 @@ var app = app || {};
     $('section').on('click', '.add', () => {
       event.preventDefault();
       var targetId = $(event.target).parent().data('recipeid');
-      app.recipe.saveRecipe();
+      app.recipe.saveRecipe(targetId);
     })
+  }
 
+
+  recipeController.backToSearchListener = () => {
+    $('.back').on('click', () => {
+      console.log('back button hit!');
+      window.history.back();
+    })
   }
 
   module.recipeController = recipeController;
