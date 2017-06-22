@@ -34,9 +34,11 @@ var app = app || {};
     }, 'json');
   }
 
+
   recipe.saveRecipe = function (recipeId) {
     // let recipeId = $(this).data('recipeid').val();
     let userId = app.user.userInfo.user_id;
+    console.log('in saveRecipe', recipeId);
     $.post('/myRecipes', { recipeId: recipeId, userId: userId }, response => console.log(response), 'json');
   }
 
