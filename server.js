@@ -46,7 +46,7 @@ app.get('/login', (request, response) => {
 })
 
 app.get('/myRecipes', (request, response) => {
-  let sql = 'SELECT * FROM recipes WHERE userId = $1'
+  let sql = 'SELECT * FROM recipes WHERE user_id = $1'
 
   client.query(sql, [request.query.userId, request.query.recipeId])
     .then(result => response.send(result.rows))
@@ -60,11 +60,14 @@ app.post('/addUser', (request, response) => {
 
 app.post('/myRecipes', (request, response) => {
   // i'm adding a recipe to the recipe table
-  let sql = 'INSERT INTO recipes (recipeId) VALUES (recipeId = $1, userId = $2)'
+  var numRecipeId = Number(request.body.recipeId);
+  var numUserId = Number(request.body.userId);
+  console.log('this is the request body', numRecipeId, numUserId);
+  let sql = 'INSERT INTO recipes(recipe_id, user_id) VALUES($1, $2)'
 
-  client.query(sql, [request.query.userId, request.query.recipeId])
-    .then(result => response.send('success'))
-    .catch(console.error);
+  client.query(sql, [numRecipeId, numUserId], function(err){
+    if (err) console.log('error:', err);
+  })
 })
 
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));

@@ -38,7 +38,7 @@ var app = app || {};
       event.preventDefault();
 
       var targetId = $(event.target).parent().data('recipeid');
-
+      console.log('recipeid =', targetId);
       app.recipe.getSingleRecipe(targetId, app.recipeViewer.populateDetailedRecipe)
     })
 
@@ -48,7 +48,8 @@ var app = app || {};
     $('section').on('click', '.add', () => {
       event.preventDefault();
       var targetId = $(event.target).parent().data('recipeid');
-      app.recipe.saveRecipe();
+      console.log('clicked on save recipe button', targetId);
+      app.recipe.saveRecipe(targetId);
     })
 
   }
