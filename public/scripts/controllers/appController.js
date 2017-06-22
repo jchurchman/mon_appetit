@@ -33,6 +33,8 @@ var app = app || {};
     app.recipe.queriedRecipes = ['greek salad'];
     app.user.userRecipes = [];
     app.user.userInfo = [];
+    $('#login').children('input').val('');
+    $('#signup').children('input').val('');//need to figure out how to make this work
     page('/');
   }
 
