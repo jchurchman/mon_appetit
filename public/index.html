@@ -22,7 +22,7 @@
 
     </script>
     <script id="recipe-detail-template" type="text/x-handlebars-template">
-    <div data-recipeid = "{{RecipeID}}">
+    <div class="card" data-recipeid = "{{RecipeID}}">
         <img src="{{PhotoUrl}}">
         <h2>{{Title}}</h2>
         <p>{{Description}}</p>
@@ -34,7 +34,6 @@
         <p>Total Cook Time: {{TotalMinutes}}</p>
         <p>Prep Time: {{ActiveMinutes}}</p>
         <input type="submit" class="add" -value="Add to My Recipes">
-        <!--<input type="submit" class="view" -value="View Detailed Recipe">-->
         <input type="submit" class="return" -value="Back">
     </div>
     </script>
@@ -109,7 +108,7 @@
         </section>
         <section id="dashboard">
             <h2></h2>
-            <div id="randomrecipe" class="longrecipe">
+            <!--<div id="randomrecipe" class="longrecipe">
                 <img src={{photoURL}}>
                 <h3>{{title}}</h3>
                 <table>
@@ -121,7 +120,7 @@
                     </tr>
                 </table>
                 <p>{{description}}</p>
-            </div>
+            </div>-->
         </section>
         <section id="searchAll">
             <form>
@@ -134,8 +133,8 @@
                     <input type="submit" class="button" value="Search">
                 </fieldset>
             </form>
-        <div id="card-container">
-        </div>
+            <div id="card-container">
+            </div>
         </section>
         <section id="recipe-container">
         </section>
@@ -146,17 +145,10 @@
                     <input type="text" placeholder="Enter recipe keyword(s) here">
                     <label for="filter" class="control-label">Filter By:</label>
                     <select name="category">
-<option>Type of Category</option>
-<option>Type of Category</option>
-<option>Type of Category</option>
-<option>Type of Category</option>
-<option>Type of Category</option>
 </select>
                     <input type="submit" class="button" value="Search">
                 </fieldset>
             </form>
-            <li>
-            </li>
         </section>
 
     </main>

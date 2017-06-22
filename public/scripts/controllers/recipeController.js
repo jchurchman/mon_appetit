@@ -45,9 +45,11 @@ var app = app || {};
   }
 
   recipeController.saveRecipeListener = () => {
-    event.preventDefault();
-    var targetId = $(event.target).parent().data('recipeid');
-
+    $('section').on('click', '.add', () => {
+      event.preventDefault();
+      var targetId = $(event.target).parent().data('recipeid');
+      app.recipe.saveRecipe(targetId);
+    })
   }
 
   module.recipeController = recipeController;
