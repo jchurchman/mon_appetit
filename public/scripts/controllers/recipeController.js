@@ -34,9 +34,16 @@ var app = app || {};
   }
 
   recipeController.recipeDetailListener = () => {
-    $('.foo').on('click', () => {
+    // $('.foo').on('click', () => {
+    //   event.preventDefault();
+    //   alert('hi');
+    // })
+    $('#card-container').on('click', '#view', () => {
       event.preventDefault();
-      alert('hi');
+
+      var targetId = $(event.target).parent().data('recipeid');
+
+      app.recipe.getSingleRecipe(targetId, app.recipeViewer.populateDetailedRecipe)
     })
   }
 
