@@ -33,7 +33,6 @@ app.get('/searchRecipes/:recipeId', (request,response) => {
   superagent
     .get(`https://api2.bigoven.com/recipe/${request.params.recipeId}?api_key=${process.env.API_KEY}`)
     .end((err,superagentResponse) => {
-      console.log(`https://api2.bigoven.com/recipe/${request.params.recipeId}?api_key=${process.env.API_KEY}`)
       response.send(superagentResponse.body);
     });
 });
