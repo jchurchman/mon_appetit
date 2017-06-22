@@ -1,0 +1,48 @@
+footer {
+    background-color: #FFA000;
+    border-top: 
+}
+
+header {
+  background-color: #FFA000;
+  color: #757575;
+}
+
+#welcome form {
+  background-color: #FFC107;
+}
+
+
+header a {
+  text-decoration: none;
+  color: #757575;
+}
+
+#mainnav ul {
+  padding: auto 0.5vw;
+  -webkit-padding-start: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+}
+
+header h3 {
+  max-width: 100%;
+  margin: 4vh 0 0 0;
+}
+
+header img {
+  display: none;
+}
+
+
+header li {
+  padding: 1vw .2vw;
+  border: 1px solid #BDBDBD;
+  border-radius: 25px;
+  background-color: #FFC107;
+  margin: 3vw .5vw;
+}

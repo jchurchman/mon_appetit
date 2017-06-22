@@ -13,7 +13,7 @@ var app = app || {};
   recipeViewer.renderRecipeCard = Handlebars.compile($('#recipe-card-template').text());
   
   recipeViewer.populateRecipeCards = function () {
-    $('#card-container').append(app.recipe.queriedRecipes.map(app.recipeViewer.renderRecipeCard));
+    $('#searchAll .card-container').append(app.recipe.queriedRecipes.map(app.recipeViewer.renderRecipeCard));
     app.recipeController.recipeDetailListener();
     app.recipeController.saveRecipeListener();
   }
@@ -38,7 +38,7 @@ var app = app || {};
   }
 
   recipeViewer.showDetailedRecipe = () => {
-    $('#card-container').hide();
+    $('.card-container').parent().hide();
     $('#recipe-container').show();
   }
 

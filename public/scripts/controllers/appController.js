@@ -25,7 +25,7 @@ var app = app || {};
     app.appViewer.showSearchAll();
     app.recipeController.initCategoryFilter();
     app.recipeController.searchListener();
-    $('#card-container').show();
+    $('#searchAll .card-container').show();
     $('#recipe-container').hide();
   }
 
