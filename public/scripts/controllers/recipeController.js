@@ -53,9 +53,9 @@ var app = app || {};
       event.preventDefault();
       var targetId = $(event.target).parent().data('recipeid');
       var targetPhoto = $(event.target).siblings('img').attr('src');
-      var targetTitle = $(event.target).siblings('h4').text();
-      console.log('clicked on save recipe button', targetId, targetPhoto, targetTitle);
-      app.recipe.saveRecipe(targetId, targetPhoto, targetTitle);
+      var targetTitle = $(event.target).siblings('h3').text();
+      console.log('clicked on save recipe button', targetId, targetTitle, targetPhoto);
+      app.recipe.saveRecipe(targetId, targetTitle, targetPhoto);
     })
   }
 
