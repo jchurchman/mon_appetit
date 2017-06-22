@@ -3,9 +3,9 @@ var app = app || {};
 
 (function (module) {
 
-// function Recipe(rawDataObj) {
-//   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-// }
+  // function Recipe(rawDataObj) {
+  //   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+  // }
 
   const recipe = {};
 
@@ -36,11 +36,11 @@ var app = app || {};
   recipe.saveRecipe = function () {
     let recipeId = $(this).data('recipeid').val();
     let userId = app.user.userInfo.user_id;
-    $.post('/myRecipes', {recipeId: recipeId, userId: userId}, response => console.log(response), 'json');
-  }
+    $.post('/myRecipes', { recipeId: recipeId, userId: userId }, response => console.log(response), 'json');
   }
 
+
   module.recipe = recipe;
-})(app);
+}(app));
 
 

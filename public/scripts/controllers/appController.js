@@ -23,7 +23,7 @@ var app = app || {};
   appController.initSearchAll = function () {
     console.log('app.appController.initSearchAll was called');
     app.appViewer.showSearchAll();
-    $('#searchAll submit').on('submit', app.recipe.queryRecipes);
+    $('#searchAll submit').on('submit', app.recipe.requestRecipes);
     app.recipeController.initCategoryFilter();
     app.recipeController.searchListener();
   }
