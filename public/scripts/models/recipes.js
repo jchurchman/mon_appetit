@@ -33,6 +33,12 @@ var app = app || {};
     }, 'json');
   }
 
+  recipe.saveRecipe = function () {
+    let recipeId = $(this).data('recipeid').val();
+    $.post('/myRecipes', {recipeId: recipeId, userId: userId}, response => console.log(response), 'json');
+  }
+  }
+
   module.recipe = recipe;
 })(app);
 

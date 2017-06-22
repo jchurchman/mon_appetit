@@ -34,10 +34,10 @@ var app = app || {};
   }
 
   recipeController.recipeDetailListener = () => {
-    $('.foo').on('click', () => {
-      event.preventDefault();
-      alert('hi');
-    })
+    // $('.foo').on('click', () => {
+    //   event.preventDefault();
+    //   alert('hi');
+    // })
   }
 
   module.recipeController = recipeController;

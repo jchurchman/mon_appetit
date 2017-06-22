@@ -6,14 +6,16 @@ var app = app || {};
 (function (module) {
 
   var user = {};
+
   user.findwhere = function(userCheck) {
     console.log('in users findwhere', userCheck);
     $.get('/login', { userCheck: userCheck })
-      .then((data) => { //console.log('got data', data));
-        if (data.length === 0) {
+      .then((userInfo) => { //console.log('got userInfo', userInfo));
+        if (userInfo === null) {
           $('#login p:first').text('User name and password not found.');
         } else {
-          console.log('user found');
+          console.log('user found', userInfo);
+          user.userInfo = userInfo;
           page('/dashboard');
         }
 
@@ -25,7 +27,6 @@ var app = app || {};
       .then((data) => {console.log('got new data', data)});
   }
 
-  user.userInfo = {};
 
   user.userRecipes = [];
 

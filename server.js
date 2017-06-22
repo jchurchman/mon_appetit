@@ -40,17 +40,33 @@ app.get('/searchRecipes/:recipeId', (request,response) => {
 });
 
 app.get('/login', (request, response) => {
-  // console.log('request:', request.query.userName);
   let sql = `SELECT * FROM users WHERE username = $1 AND password = $2`
 
   client.query(sql, request.query.userCheck)
+    .then(result => response.send(result.rows[0]))
+    .catch(console.error);
+})
+
+app.get('/myRecipes', (request, response) => {
+  let sql = 'SELECT * FROM recipes WHERE userId = $1'
+
+  client.query(sql, request.query.userId)
     .then(result => response.send(result.rows))
     .catch(console.error);
 })
 
-app.put('addUser', (request, response) => {
+app.post('/addUser', (request, response) => {
   console.log('request:', request.query.userName);
   // let sql =
+})
+
+app.post('/myRecipes', (request, response) => {
+  // i'm adding a recipe to the recipe table
+  let sql = 'INSERT INTO recipes (recipeId) VALUES (recipeId = $1, userId = $2)'
+
+  client.query(sql, [request.query.userId, request.query.recipeId])
+    .then(result => response.send('success'))
+    .catch(console.error);
 })
 
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
