@@ -45,6 +45,7 @@ var app = app || {};
 
       app.recipe.getSingleRecipe(targetId, app.recipeViewer.populateDetailedRecipe)
     })
+
   }
 
   recipeController.saveRecipeListener = () => {
