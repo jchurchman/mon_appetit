@@ -56,6 +56,7 @@ var app = app || {};
     })
   }
 
+
   recipeController.backToSearchListener = () => {
     $('.back').on('click', () => {
       console.log('back button hit!');
