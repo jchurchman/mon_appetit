@@ -50,7 +50,7 @@ app.get('/login', (request, response) => {
 app.get('/myRecipes', (request, response) => {
   let sql = 'SELECT * FROM recipes WHERE userId = $1'
 
-  client.query(sql, request.query.userId)
+  client.query(sql, [request.query.userId, request.query.recipeId])
     .then(result => response.send(result.rows))
     .catch(console.error);
 })

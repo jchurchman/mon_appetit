@@ -35,6 +35,7 @@ var app = app || {};
 
   recipe.saveRecipe = function () {
     let recipeId = $(this).data('recipeid').val();
+    let userId = app.user.userInfo.user_id;
     $.post('/myRecipes', {recipeId: recipeId, userId: userId}, response => console.log(response), 'json');
   }
   }
