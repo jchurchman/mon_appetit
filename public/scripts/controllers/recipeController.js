@@ -52,8 +52,10 @@ var app = app || {};
     $('section').on('click', '.add', () => {
       event.preventDefault();
       var targetId = $(event.target).parent().data('recipeid');
-      console.log('clicked on save recipe button', targetId);
-      app.recipe.saveRecipe(targetId);
+      var targetPhoto = $(event.target).siblings('img').attr('src');
+      var targetTitle = $(event.target).siblings('h4').text();
+      console.log('clicked on save recipe button', targetId, targetPhoto, targetTitle);
+      app.recipe.saveRecipe(targetId, targetPhoto, targetTitle);
     })
   }
 

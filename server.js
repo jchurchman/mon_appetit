@@ -46,9 +46,11 @@ app.get('/login', (request, response) => {
 })
 
 app.get('/myRecipes', (request, response) => {
-  let sql = 'SELECT * FROM recipes WHERE user_id = $1'
+  var numUserId = Number(request.query.userId);
+  console.log('this is the request body', numUserId);
+  let sql = 'SELECT * FROM recipes WHERE user_id=$1;'
 
-  client.query(sql, [request.query.userId, request.query.recipeId])
+  client.query(sql, [numUserId])
     .then(result => response.send(result.rows))
     .catch(console.error);
 })
@@ -62,10 +64,10 @@ app.post('/myRecipes', (request, response) => {
   // i'm adding a recipe to the recipe table
   var numRecipeId = Number(request.body.recipeId);
   var numUserId = Number(request.body.userId);
-  console.log('this is the request body', numRecipeId, numUserId);
-  let sql = 'INSERT INTO recipes(recipe_id, user_id) VALUES($1, $2)'
+  console.log('this is the request body', numRecipeId, numUserId, request.body.recipeTitle, request.body.recipeImgUrl);
+  let sql = 'INSERT INTO recipes(recipe_id, user_id, title, img) VALUES($1, $2, $3, $4)'
 
-  client.query(sql, [numRecipeId, numUserId], function(err){
+  client.query(sql, [numRecipeId, numUserId, request.body.recipeTitle, request.body.recipeImgUrl], function(err){
     if (err) console.log('error:', err);
   })
 })
