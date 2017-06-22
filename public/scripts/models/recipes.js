@@ -35,11 +35,10 @@ var app = app || {};
   }
 
 
-  recipe.saveRecipe = function (recipeId) {
-    // let recipeId = $(this).data('recipeid').val();
+  recipe.saveRecipe = function (recipeId, recipeTitle, recipeImgUrl) {
+    console.log('in saveRecipe', recipeId, recipeTitle, recipeImgUrl);
     let userId = app.user.userInfo.user_id;
-    console.log('in saveRecipe', recipeId);
-    $.post('/myRecipes', { recipeId: recipeId, userId: userId }, response => console.log(response), 'json');
+    $.post('/myRecipes', { recipeId: recipeId, userId: userId, recipeTitle: recipeTitle, recipeImgUrl: recipeImgUrl }, response => console.log(response), 'json');
   }
 
 

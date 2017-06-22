@@ -16,7 +16,7 @@ var app = app || {};
   userViewer.initMySearchPage = () => {
     console.log('app.userViewer.initMySearchPage was called');
     app.userViewer.showMyRecipes();
-    app.userViewer.showMySearch();
+    // app.userViewer.showMySearch();
   }
 
   userViewer.showMySearch = () => {
@@ -32,12 +32,13 @@ var app = app || {};
     console.log(userId);
 
     $.get('/myRecipes', { userId: userId })
-      .then((userInfo) => { 
-        if (userInfo !== null) {
-          console.log('found recipes'); // $('#').text('No recipes found.'); What html tag to put this in?
-        } else {
+      .then((userInfo) => {
+        if (userInfo.length < 1) {
           console.log('recipes not found', userInfo);
-          // figure out what to do here
+          $('#searchMy .card-container').text('No recipes found');
+        } else {
+          console.log('found recipes', userInfo);
+          app.recipeViewer.populateRecipeCards(userInfo);
         }
 
       })
