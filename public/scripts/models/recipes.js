@@ -15,14 +15,15 @@ var app = app || {};
     console.log('app.recipe.getRandom is undefined');
   }
 
-  recipe.requestRecipes = function (callback) {
-    var text = $('#text-search').val();
-    var selected = $('#category-search option:selected').text().toLowerCase();
+  recipe.requestRecipes = function (text, selected, callback) {
+    // var text = $('#text-search').val();
+    // var selected = $('#category-search option:selected').text().toLowerCase();
     console.log('search button was clicked, then requestRecipes was called');
     $.get(`/bigoven/${text}/${selected}`, function (data) {
       app.recipe.queriedRecipes = data.Results;
       callback();
     }, 'json');
+    // page(`/searchRecipes/${text}/${selected}`)
   }
 
   recipe.getSingleRecipe = function (targetId, callback) {
