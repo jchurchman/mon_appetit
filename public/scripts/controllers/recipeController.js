@@ -38,6 +38,20 @@ var app = app || {};
     //   event.preventDefault();
     //   alert('hi');
     // })
+    $('#card-container').on('click', '.view', () => {
+      event.preventDefault();
+
+      var targetId = $(event.target).parent().data('recipeid');
+
+      app.recipe.getSingleRecipe(targetId, app.recipeViewer.populateDetailedRecipe)
+    })
+
+  }
+
+  recipeController.saveRecipeListener = () => {
+    event.preventDefault();
+    var targetId = $(event.target).parent().data('recipeid');
+
   }
 
   module.recipeController = recipeController;

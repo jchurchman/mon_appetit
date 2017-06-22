@@ -15,8 +15,9 @@
         <div class="foo" data-recipeid = "{{RecipeID}}">
             <img src="{{PhotoUrl}}">
             <h4>{{Title}}</h4>
-            <a href="">Save</a>
-            <a href="">Return to search></a>
+            <input type="submit" class="add" value="Add to My Recipes">
+            <input type="submit" class="view" value="View Detailed Recipe">
+            <!--<input type="submit" id="return" class="button" value="Return to Search">-->
         </div>
 
     </script>
@@ -26,15 +27,26 @@
         <h2>{{Title}}</h2>
         <p>{{Description}}</p>
         <h4>{{Category}}</h4>
-        <ul>{{Ingredients}}</ul>
-        <ul>{{DisplayQuantity}}</ul>
-        <ul>{{Unit}}</ul>
-        <p>{{Instructions}}</p>
-        <p>{{YieldNumber}}</p>
-        <p>{{YieldUnit}}</p>
-        <p>{{TotalMinutes}}</p>
-        <p>{{ActiveMinutes}}</p>
+        <table>
+        </table>
+        <p>{{{Instructions}}}</p>
+        <p>{{YieldNumber}} {{YieldUnit}}</p>
+        <p>Total Cook Time: {{TotalMinutes}}</p>
+        <p>Prep Time: {{ActiveMinutes}}</p>
+        <input type="submit" class="add" value="Add to My Recipes">
+        <!--<input type="submit" class="view" value="View Detailed Recipe">-->
+        <input type="submit" class="return" value="Back">
     </div>
+    </script>
+    <script id="recipe-ingredients-template" type="text/x-handlebars-template">
+        <tr>
+            <td>{{DisplayQuantity}}</td>
+            <td>{{Unit}}</td>
+            <td>{{Name}}</td>
+            {{#if PreparationNotes}}
+            <td>{{PreparationNotes}}</td>
+            {{/if}}
+        </tr>
     </script>
 
     <title>Mon Appetit</title>

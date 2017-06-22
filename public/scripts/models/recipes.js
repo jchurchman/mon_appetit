@@ -25,11 +25,11 @@ var app = app || {};
     }, 'json');
   }
 
-  recipe.getSingleRecipe = function (callback) {
-    let recipeId = $(this).data('recipeid').val();
-    $.get(`/searchRecipes/${recipeId}`, function (data) {
-      app.recipe.singleRecipe = data.Results;
-      callback();
+  recipe.getSingleRecipe = function (targetId, callback) {
+    $.get(`/searchRecipes/${targetId}`, function (data) {
+      console.log('data.Title is ', data.Title);
+      app.recipe.singleRecipe = data;
+      callback(data);
     }, 'json');
   }
 
