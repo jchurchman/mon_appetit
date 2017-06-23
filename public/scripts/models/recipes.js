@@ -30,6 +30,7 @@ var app = app || {};
         if (userInfo.length < 1) {
           $('#searchMy .card-container').html('<h3>No recipes found</h3>');
         } else {
+          $('#searchMy .card-container').html(' ');
           app.recipe.queriedRecipes = userInfo;
           app.recipeViewer.populateRecipeCards(appendTarget);
         }
