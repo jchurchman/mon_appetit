@@ -7,7 +7,7 @@ var app = app || {};
 
   userViewer.greetUser = () => {
     let name = app.user.userInfo.name;
-    $('#dashboard h2').text(`Hello ${name}! What do you want to cook today?`);
+    $('#dashboard h2').html(`Hello ${name}! </br>What do you want to cook today?`);
   }
 
   userViewer.showMySearch = () => {
