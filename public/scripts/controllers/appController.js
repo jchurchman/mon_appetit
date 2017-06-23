@@ -20,7 +20,6 @@ var app = app || {};
 
   appController.initSearchAll = function () {
     app.appViewer.showSearchAll();
-    app.recipeController.initCategoryFilter();
     app.recipeController.searchListener();
     $('#searchAll .card-container').show();
     $('#recipe-container').hide();
