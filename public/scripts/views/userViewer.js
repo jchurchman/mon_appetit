@@ -10,28 +10,14 @@ var app = app || {};
     $('#dashboard h2').text(`Hello ${name}! What do you want to cook today?`);
   }
 
-  userViewer.initMySearchPage = () => {
-    app.userViewer.showMyRecipes();
-  }
-
   userViewer.showMySearch = () => {
     $('#searchMy').show().siblings().hide();
   }
 
   userViewer.showMyRecipes = () => {
     let userId = app.user.userInfo.user_id;
-
-    $.get('/myRecipes', { userId: userId })
-      .then((userInfo) => {
-        if (userInfo.length < 1) { //TODO: this is ugly
-          $('#searchMy .card-container').text('No recipes found');
-        } else {
-          console.log('userInfo at app.userViewer.showMyRecipes is ', userInfo);
-          app.recipeViewer.populateMyRecipes(userInfo);
-        }
-
-      })
-
+    let appendTarget = $('#searchMy .card-container')
+    app.recipe.getMyRecipes(appendTarget, userId);
   }
 
   module.userViewer = userViewer;

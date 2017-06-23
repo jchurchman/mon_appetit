@@ -5,6 +5,19 @@ var app = app || {};
 (function (module) {
   const recipeViewer = {};
 
+  recipeViewer.initCategoryFilter = function() {
+    $.get(`/bigoven/categories`, function (data) {
+      let filterCategories = function (category) {return category.ParentID === 0;}
+      let categories = data.filter(filterCategories);
+      $.each(categories, function (i, item) {
+        $('#category-search').append($('<option>', {
+          value: item.ID,
+          text: item.Category
+        }));
+      });
+    })
+  }
+
   recipeViewer.showRandomRecipe = () => { //TODO: show random recipe
     app.recipe.getRandom();
     console.log('got random recipe, need to put it in the DOM');
@@ -12,18 +25,11 @@ var app = app || {};
 // TODO: refactor template compiling and filling
   recipeViewer.renderRecipeCard = Handlebars.compile($('#recipe-card-template').text());
 
-  // recipeViewer.renderMyRecipeCard = Handlebars.compile($('#my-card-template').text());
-
   recipeViewer.populateRecipeCards = function (appendTarget) {
     appendTarget.append(app.recipe.queriedRecipes.map(app.recipeViewer.renderRecipeCard));
     app.recipeController.recipeDetailListener();
     app.recipeController.saveRecipeListener();
   }
-
-  // recipeViewer.populateMyRecipes = function (userInfo) {
-  //   $('#searchMy .card-container').append(userInfo.map(app.recipeViewer.renderMyRecipeCard));
-  //   app.recipeController.recipeDetailListener();
-  // }
 
   recipeViewer.renderDetailedRecipe = function(data) {
     var template = Handlebars.compile($('#recipe-detail-template').text());

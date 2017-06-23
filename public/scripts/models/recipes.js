@@ -19,14 +19,23 @@ var app = app || {};
   recipe.requestRecipes = function (text, selected, appendTarget, callback) { //TODO:refactor to accept one parameter
     $.get(`/bigoven/${text}/${selected}`, function (data) {
       app.recipe.queriedRecipes = data.Results.map( apiRecipeObj => new Recipe(apiRecipeObj) );
-
-      // data.Results.map( 
-      // apiRecipeObj => {
-      //   app.recipe.queriedRecipes.push(new Recipe (apiRecipeObj))
-      // });
       console.log('app.recipe.queriedRecipes is ', app.recipe.queriedRecipes);
       callback(appendTarget);
     }, 'json');
+  }
+
+  recipe.getMyRecipes = function (appendTarget, userId) {
+    $.get('/myRecipes', { userId: userId })
+      .then((userInfo) => {
+        if (userInfo.length < 1) { //TODO: this is ugly
+          $('#searchMy .card-container').text('No recipes found');
+        } else {
+          console.log('userInfo at app.userViewer.showMyRecipes is ', userInfo);
+          app.recipe.queriedRecipes = userInfo;
+          app.recipeViewer.populateRecipeCards(appendTarget);
+        }
+
+      })
   }
 
   recipe.getSingleRecipe = function (targetId, callback) {

@@ -30,9 +30,9 @@ var app = app || {};
   }
 
   userController.init = () => {
-    app.userViewer.initMySearchPage();
+    app.userViewer.showMySearch();
+    app.userViewer.showMyRecipes();
     $('#searchMy').on('submit', app.user.queryUserRecipes); //TODO: refactor to sort by category
-    $('#searchMy').show().siblings().hide();
   }
 
   module.userController = userController;
