@@ -29,11 +29,6 @@ var app = app || {};
   appController.logout = () => {
     app.recipe.queriedRecipes = [];
     app.user.userInfo = [];
-    // $('#login').children('input[type=text]').val(' ');
-    // console.log($('#login').children('input[type=text]'))
-    // $('#login').children('input[type=password]').val(' ');
-    // $('#signup').children('input[type=text]').val(' ');//TODO: need to figure out how to make this work
-    // $('#signup').children('input[type=password]').val(' ');//TODO: need to figure out how to make this work
     page.redirect('/');
   }
 

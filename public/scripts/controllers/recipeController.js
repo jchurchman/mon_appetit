@@ -5,10 +5,6 @@ var app = app || {};
 (function (module) {
   const recipeController = {};
 
-  recipeController.initCategoryFilter = function () {  
-    app.recipeViewer.initCategoryFilter();
-  };
-
   recipeController.searchListener = () => {
     $('#searchAll').on('submit', () => {
       event.preventDefault();
