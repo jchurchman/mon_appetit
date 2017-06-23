@@ -45,7 +45,7 @@ app.get('bigoven/categories', (request, response) => {
 });
 
 app.get('/checkUserName', (request, response) => {
-  let sql = `SELECT * FROM users WHERE username = ${request.query.username}`
+  let sql = `SELECT * FROM users WHERE username = $1`
 
   client.query(sql, request.query.username)
     .then( result => response.send(result.rows[0]))

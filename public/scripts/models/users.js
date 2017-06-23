@@ -45,8 +45,8 @@ var app = app || {};
 
 // TODO: check login/signup routes
   user.checkUserName = () => { 
-    console.log('app.user.checkUserName is undefined') 
     var suppliedUserName = $('#signup .username').val();
+    console.log('suppliedUserName is ', suppliedUserName);
     $.get('/checkUserName', { username: suppliedUserName })
       .then((userNameCheck) => {
         if(userNameCheck.length < 1) {
