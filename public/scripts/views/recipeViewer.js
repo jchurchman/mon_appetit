@@ -21,8 +21,7 @@ var app = app || {};
   }
 
   recipeViewer.populateMyRecipes = function (userInfo) {
-    $('#searchMy .card-container').append(userInfo.map(app.recipeViewer.renderRecipeCard));
-
+    $('#searchMy .card-container').append(userInfo.map(app.recipeViewer.renderMyRecipeCard));
     app.recipeController.recipeDetailListener();
   }
 
