@@ -8,7 +8,7 @@ var app = app || {};
   recipeController.initCategoryFilter = function () {  //TODO: Move to recipes.js
     $.ajax({
       type: 'GET',
-      url: 'https://api2.bigoven.com/recipe/categories?api_key=1x9xx03CdK3xioV1W8sJXRT3RWw01YAN',
+      url: `https://api2.bigoven.com/recipe/categories?api_key=1x9xx03CdK3xioV1W8sJXRT3RWw01YAN`,
       dataType: 'json',
       success: function (data) {
         let filterCategories = function (category) {
@@ -28,9 +28,11 @@ var app = app || {};
   recipeController.searchListener = () => {
     $('#searchAll').on('submit', () => {
       event.preventDefault();
+      let appendTarget = $(event.target).siblings('.card-container');
+      console.log('$(event.target) is ', appendTarget);
       let text = $('#text-search').val();
       let selected = $('#category-search option:selected').text().toLowerCase();
-      app.recipe.requestRecipes(text, selected, app.recipeViewer.populateRecipeCards)
+      app.recipe.requestRecipes(text, selected, appendTarget, app.recipeViewer.populateRecipeCards)
     });
   }
 

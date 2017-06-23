@@ -5,14 +5,27 @@ var app = app || {};
 
   const recipe = {};
 
+  function Recipe(rawRecipeObj) {
+    this.recipe_id = rawRecipeObj.RecipeID,
+    this.category = rawRecipeObj.Category,
+    this.photo_url = rawRecipeObj.PhotoUrl,
+    this.title = rawRecipeObj.Title
+  }
+
   recipe.getRandom = () => { //TODO: complete this function
     console.log('app.recipe.getRandom is undefined');
   }
 
-  recipe.requestRecipes = function (text, selected, callback) { //TODO:refactor to accept one parameter
+  recipe.requestRecipes = function (text, selected, appendTarget, callback) { //TODO:refactor to accept one parameter
     $.get(`/bigoven/${text}/${selected}`, function (data) {
-      app.recipe.queriedRecipes = data.Results;
-      callback();
+      app.recipe.queriedRecipes = data.Results.map( apiRecipeObj => new Recipe(apiRecipeObj) );
+
+      // data.Results.map( 
+      // apiRecipeObj => {
+      //   app.recipe.queriedRecipes.push(new Recipe (apiRecipeObj))
+      // });
+      console.log('app.recipe.queriedRecipes is ', app.recipe.queriedRecipes);
+      callback(appendTarget);
     }, 'json');
   }
 
