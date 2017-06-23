@@ -32,30 +32,43 @@ var app = app || {};
   }
 
   user.signUpListener = () => {
-    $('#username').on('change', app.user.checkUserName);
+    $('#signup .username').on('change', app.user.checkUserName);
     $('#confirm-password').on('change', user.confirmPassword);
     $('#signup submit').hide();
   }
 
-  user.saveNewUser = () => {
-    event.preventDefault();
-    app.user.checkUserName();
-    app.user.saveUserCredentials();
-    page('/dashboard');
-  }
+  // user.saveNewUser = () => {
+  //   event.preventDefault();
+  //   app.user.saveUserCredentials();
+  //   page('/dashboard');
+  // }
 
 // TODO: check login/signup routes
-  user.checkUserName = () => { console.log('app.user.checkUserName is undefined') }; //perhaps returns a boolean?
-  user.queryUserCredentials = () => {
-    console.log('app.user.queryUserCredentials was called');
-    event.preventDefault();
-    page('/dashboard');
-  }
+  user.checkUserName = (suppliedUserName) => { 
+    console.log('app.user.checkUserName is undefined') 
+    $.get('/checkUserName', { username: suppliedUserName })
+      .then((userNameCheck) => {
+        if(userNameCheck.length < 1) {
+          $('#signup submit').on('submit', app.user.saveUserCredentials);
+        } else {
+          $('#signup p:first').text('User name already exists.');
+        }
+      })
+  };
+
 
   user.saveUserCredentials = () => {
+    event.preventDefault();
+    const name = $('#signup .name').val();
+    const username = $('#signup .username').val();
+    const password = $('#signup .confirm-password').val();
     console.log('app.user.saveUserCredentials was called');
-    $.put('/addUser', {name: name, userName: userName, password: password})
-      .then((data) => {console.log('got new data', data)});
+    $.put('/addUser', {name: name, username: username, password: password})
+      .then((data) => {
+        user.userInfo = [username, password, name]
+        console.log('got new data', data)
+        page('/dashboard');
+      })
   };
 
   module.user = user;

@@ -64,7 +64,16 @@ app.get('/myRecipes', (request, response) => {
 
 app.post('/addUser', (request, response) => {  //TODO: adduser
   console.log('request:', request.query.userName);
-  // let sql =
+
+  let sql = 'INSERT INTO users (username, password, name) VALUES($1, $2, $3)'
+
+  client.query(sql, [response.body.username, response.body.password, response.body.name], function(err){
+    if(err) {
+      console.log('error: ', err);
+    } else {
+      response.send('ok');
+    }
+  })
 })
 
 app.post('/myRecipes', (request, response) => { //TODO: check for recipe already in recipe table
