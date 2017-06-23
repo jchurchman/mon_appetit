@@ -70,7 +70,7 @@ app.get('/myRecipes', (request, response) => {
     .catch(console.error);
 })
 
-app.post('/addUser', (request, response) => {  //TODO: adduser
+app.post('/addUser', (request, response) => {
   console.log('request:', request.query.userName);
 
   let sql = 'INSERT INTO users (username, password, name) VALUES($1, $2, $3)'
@@ -84,7 +84,7 @@ app.post('/addUser', (request, response) => {  //TODO: adduser
   })
 })
 
-app.post('/myRecipes', (request, response) => { //TODO: check for recipe already in recipe table
+app.post('/myRecipes', (request, response) => {
   var numRecipeId = Number(request.body.recipeId);
   var numUserId = Number(request.body.userId);
   let sql = 'INSERT INTO recipes(recipe_id, title, photo_url) VALUES($1, $2, $3)'

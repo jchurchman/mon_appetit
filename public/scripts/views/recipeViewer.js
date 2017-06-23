@@ -18,11 +18,11 @@ var app = app || {};
     })
   }
 
-  recipeViewer.showRandomRecipe = () => { //TODO: show random recipe
+  recipeViewer.showRandomRecipe = () => {
     app.recipe.getRandom();
     console.log('got random recipe, need to put it in the DOM');
   }
-// TODO: refactor template compiling and filling
+
   recipeViewer.renderRecipeCard = Handlebars.compile($('#recipe-card-template').text());
 
   recipeViewer.populateRecipeCards = function (appendTarget) {

@@ -5,7 +5,7 @@ var app = app || {};
 (function (module) {
   const userController = {};
 
-  userController.checkPreviousUsers = () => { //TODO: make sure that previous users function still works
+  userController.checkPreviousUsers = () => {
     event.preventDefault();
     const userCheck = [];
     const userName = $('#login .username').val();
@@ -32,7 +32,7 @@ var app = app || {};
   userController.init = () => {
     app.userViewer.showMySearch();
     app.recipe.getMyRecipes();
-    $('#searchMy').on('submit', app.user.queryUserRecipes); //TODO: refactor to sort by category
+    $('#searchMy').on('submit', app.user.queryUserRecipes);
   }
 
   module.userController = userController;

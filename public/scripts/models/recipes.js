@@ -12,11 +12,11 @@ var app = app || {};
     this.title = rawRecipeObj.Title
   }
 
-  recipe.getRandom = () => { //TODO: complete this function
+  recipe.getRandom = () => {
     console.log('app.recipe.getRandom is undefined');
   }
 
-  recipe.requestRecipes = function (text, selected, appendTarget, callback) { //TODO:refactor to accept one parameter
+  recipe.requestRecipes = function (text, selected, appendTarget, callback) {
     $.get(`/bigoven/${text}/${selected}`, function (data) {
       app.recipe.queriedRecipes = data.Results.map( apiRecipeObj => new Recipe(apiRecipeObj) );
       console.log('app.recipe.queriedRecipes is ', app.recipe.queriedRecipes);

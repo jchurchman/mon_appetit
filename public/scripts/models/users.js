@@ -37,13 +37,6 @@ var app = app || {};
     $('#signup submit').hide();
   }
 
-  // user.saveNewUser = () => {
-  //   event.preventDefault();
-  //   app.user.saveUserCredentials();
-  //   page('/dashboard');
-  // }
-
-// TODO: check login/signup routes
   user.checkUserName = () => { 
     var suppliedUserName = $('#signup .username').val();
     console.log('suppliedUserName is ', suppliedUserName);
@@ -56,7 +49,6 @@ var app = app || {};
         }
       })
   };
-
 
   user.saveUserCredentials = () => {
     event.preventDefault();
