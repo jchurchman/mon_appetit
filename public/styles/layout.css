@@ -13,6 +13,8 @@ main section:not(#welcome) {
   position: fixed;
   width: 85vw;
   right: 0;
+  height: 96%;
+  overflow: scroll;
 }
 
 #dashboard h2 {
@@ -27,6 +29,7 @@ footer {
   left: 0;
   width: 100%;
   text-align: center;
+  height: 4%;
 }
 
 
