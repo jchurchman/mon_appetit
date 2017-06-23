@@ -12,6 +12,7 @@ var app = app || {};
   recipeController.searchListener = () => {
     $('#searchAll').on('submit', () => {
       event.preventDefault();
+      $('.card-container').html(' ');
       let appendTarget = $(event.target).siblings('.card-container');
       console.log('$(event.target) is ', appendTarget);
       let text = $('#text-search').val();
