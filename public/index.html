@@ -12,29 +12,33 @@
     <link rel="stylesheet" type="text/css" href="./styles/module.css">
     <script id="recipe-card-template" type="text/x-handlebars-template">
 
-        <div class="card" data-recipeid = "{{recipe_id}}" data-category="{{category}}">
-            <img src="{{photo_url}}">
-            <h4 class="title">{{title}}</h4>
-            <input type="submit" class="add" value="Add to My Recipes">
-            <input type="submit" class="view" value="View Detailed Recipe">
+        <div class="card" data-recipeid="{{recipe_id}}" data-category="{{category}}">
+            <picture class="thumbnail">
+                <img src="{{photo_url}}">
+            </picture>
+            <div class="card-content">
+                <h4 class="title">{{title}}</h4>
+                <input type="submit" class="add" value="Add to My Recipes">
+                <input type="submit" class="view" value="View Detailed Recipe">
+            </div>
         </div>
 
     </script>
     <script id="recipe-detail-template" type="text/x-handlebars-template">
-    <div class="card" data-recipeid = "{{RecipeID}}">
-        <img src="{{PhotoUrl}}">
-        <h2 class="title">{{Title}}</h2>
-        <p>{{Description}}</p>
-        <h4>{{Category}}</h4>
-        <table>
-        </table>
-        <p>{{{Instructions}}}</p>
-        <p>{{YieldNumber}} {{YieldUnit}}</p>
-        <p>Total Cook Time: {{TotalMinutes}}</p>
-        <p>Prep Time: {{ActiveMinutes}}</p>
-        <input type="submit" class="add" value="Add to My Recipes">
-        <input type="submit" class="back" value="Back to Search">
-    </div>
+        <div class="card" data-recipeid="{{RecipeID}}">
+            <img src="{{PhotoUrl}}">
+            <h2 class="title">{{Title}}</h2>
+            <p>{{Description}}</p>
+            <h4>{{Category}}</h4>
+            <table>
+            </table>
+            <p>{{{Instructions}}}</p>
+            <p>{{YieldNumber}} {{YieldUnit}}</p>
+            <p>Total Cook Time: {{TotalMinutes}}</p>
+            <p>Prep Time: {{ActiveMinutes}}</p>
+            <input type="submit" class="add" value="Add to My Recipes">
+            <input type="submit" class="back" value="Back to Search">
+        </div>
     </script>
     <script id="recipe-ingredients-template" type="text/x-handlebars-template">
         <tr>
@@ -82,7 +86,8 @@
     <main>
         <section id="welcome">
             <h1>Welcome to
-                </br><e>Mon Appetit</e>
+                </br>
+                <e>Mon Appetit</e>
             </h1>
             <form id="login">
                 <fieldset>
