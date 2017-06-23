@@ -64,3 +64,8 @@ h1 {
 #welcome input {
   margin: 2vw 1.5vw 1vw;
 }
+
+.cardcontainer h3 {
+  padding-left: 50px;
+  padding-top: 50px;
+}
