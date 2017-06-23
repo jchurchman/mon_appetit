@@ -39,7 +39,7 @@ var app = app || {};
 
   recipeController.backToSearchListener = () => {
     $('.back').on('click', () => {
-      window.history.back();
+      window.history.go(-2);
     })
   }
 
