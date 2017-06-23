@@ -27,8 +27,8 @@ var app = app || {};
   recipe.getMyRecipes = function (appendTarget, userId) {
     $.get('/myRecipes', { userId: userId })
       .then((userInfo) => {
-        if (userInfo.length < 1) { //TODO: this is ugly
-          $('#searchMy .card-container').text('No recipes found');
+        if (userInfo.length < 1) {
+          $('#searchMy .card-container').html('<h3>No recipes found</h3>');
         } else {
           console.log('userInfo at app.userViewer.showMyRecipes is ', userInfo);
           app.recipe.queriedRecipes = userInfo;

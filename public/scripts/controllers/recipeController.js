@@ -5,7 +5,7 @@ var app = app || {};
 (function (module) {
   const recipeController = {};
 
-  recipeController.initCategoryFilter = function () {  
+  recipeController.initCategoryFilter = function () {
     app.recipeViewer.initCategoryFilter();
   };
 
