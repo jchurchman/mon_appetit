@@ -36,6 +36,14 @@ app.get('/bigoven/:recipeId', (request,response) => {
     });
 });
 
+app.get('bigoven/categories', (request, response) => {
+  superagent
+    .get(`https://api2.bigoven.com/recipe/categories?api_key=${process.env.API_KEY}`)
+    .end((err, superagentResponse) => {
+      response.send(superagentResponse.body);
+    });
+});
+
 app.get('/login', (request, response) => {
   let sql = `SELECT * FROM users WHERE username = $1 AND password = $2`
 
@@ -81,6 +89,7 @@ app.post('/myRecipes', (request, response) => { //TODO: check for recipe already
     }
   })
 })
+
 
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.listen(PORT, () => console.log(`server started on port ${PORT}!`));

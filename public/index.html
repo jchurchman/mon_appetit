@@ -10,32 +10,20 @@
     <link rel="stylesheet" type="text/css" href="./styles/base.css">
     <link rel="stylesheet" type="text/css" href="./styles/layout.css">
     <link rel="stylesheet" type="text/css" href="./styles/module.css">
-
     <script id="recipe-card-template" type="text/x-handlebars-template">
 
-        <div class="foo" data-recipeid = "{{RecipeID}}">
-            <img src="{{PhotoUrl}}">
-            <h3>{{Title}}</h3>
-            <input type="submit" class="add" value="Add to My Recipes">
-            <input type="submit" class="view" value="View Detailed Recipe">
-        </div>
-
-    </script>
-    <script id="my-card-template" type="text/x-handlebars-template">
-
-        <div class="foo" data-recipeid = "{{recipe_id}}">
+        <div class="card" data-recipeid = "{{recipe_id}}" data-category="{{category}}">
             <img src="{{photo_url}}">
-            <h3>{{title}}</h3>
+            <h4 class="title">{{title}}</h4>
             <input type="submit" class="add" value="Add to My Recipes">
             <input type="submit" class="view" value="View Detailed Recipe">
-            <!--<input type="submit" id="return" class="button" value="Return to Search">-->
         </div>
 
     </script>
     <script id="recipe-detail-template" type="text/x-handlebars-template">
     <div class="card" data-recipeid = "{{RecipeID}}">
         <img src="{{PhotoUrl}}">
-        <h3>{{Title}}</h3>
+        <h2 class="title">{{Title}}</h2>
         <p>{{Description}}</p>
         <h4>{{Category}}</h4>
         <table>

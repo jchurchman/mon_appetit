@@ -4,14 +4,10 @@ var app = app || {};
 
 (function (module) {
   const userViewer = {};
-  
+
   userViewer.greetUser = () => {
     let name = app.user.userInfo.name;
     $('#dashboard h2').text(`Hello ${name}! What do you want to cook today?`);
-  }
-
-  userViewer.initMySearchPage = () => {
-    app.userViewer.showMyRecipes();
   }
 
   userViewer.showMySearch = () => {
@@ -20,17 +16,8 @@ var app = app || {};
 
   userViewer.showMyRecipes = () => {
     let userId = app.user.userInfo.user_id;
-
-    $.get('/myRecipes', { userId: userId })
-      .then((userInfo) => {
-        if (userInfo.length < 1) { //TODO: this is ugly
-          $('#searchMy .card-container').text('No recipes found');
-        } else {
-          app.recipeViewer.populateMyRecipes(userInfo);
-        }
-
-      })
-
+    let appendTarget = $('#searchMy .card-container')
+    app.recipe.getMyRecipes(appendTarget, userId);
   }
 
   module.userViewer = userViewer;
