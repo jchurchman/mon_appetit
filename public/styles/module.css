@@ -51,7 +51,6 @@ header li {
 
 .card img {
 	display: block;
-	border: 0;
 	width: 100%;
 	height: auto;
 }
@@ -60,6 +59,18 @@ header li {
 .card {
 	background: white;
 	margin-bottom: 2em;	
+}
+
+.card table {
+margin-left: 10px;
+
+}
+
+.card th, td {
+    padding: 15px;
+    text-align: left;
+    border: solid lightgrey 1px;
+
 }
 
 .card a {
@@ -71,19 +82,24 @@ header li {
 	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
 }
 
-.card-content {
-	padding: 1.4em;
+.card h4 {
+	padding: auto;
+  text-align: center;
 }
 
-.card-content h4 {
-	margin-top: 0;
-	margin-bottom: .5em;
+.title {
+	padding: auto;
+  text-align: center;
 	font-weight: bold;
+
+  }
+
+.card p {
+	font-size: 80%;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
-.card-content p {
-	font-size: 80%;
-}
 
 /* Flexbox stuff */
 
