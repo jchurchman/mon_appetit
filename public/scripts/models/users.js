@@ -10,7 +10,7 @@ var app = app || {};
   user.findwhere = function(userCheck) {
     $.get('/login', { userCheck: userCheck })
       .then((userInfo) => {
-        if (!userInfo.length) {
+        if (userInfo.length < 1) {
           $('#login p:first').text('User name and password not found.');
         } else {
           user.userInfo = userInfo;
