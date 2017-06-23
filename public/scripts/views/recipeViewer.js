@@ -5,11 +5,11 @@ var app = app || {};
 (function (module) {
   const recipeViewer = {};
 
-  recipeViewer.showRandomRecipe = () => {
+  recipeViewer.showRandomRecipe = () => { //TODO: show random recipe
     app.recipe.getRandom();
     console.log('got random recipe, need to put it in the DOM');
   }
-
+// TODO: refactor template compiling and filling
   recipeViewer.renderRecipeCard = Handlebars.compile($('#recipe-card-template').text());
   
   recipeViewer.renderMyRecipeCard = Handlebars.compile($('#my-card-template').text());
@@ -21,10 +21,9 @@ var app = app || {};
   }
 
   recipeViewer.populateMyRecipes = function (userInfo) {
-    console.log('in populateMyRecipes');
-    $('#searchMy .card-container').append(userInfo.map(app.recipeViewer.renderMyRecipeCard));
+    $('#searchMy .card-container').append(userInfo.map(app.recipeViewer.renderRecipeCard));
+
     app.recipeController.recipeDetailListener();
-    // app.recipeController.saveRecipeListener();
   }
 
   recipeViewer.renderDetailedRecipe = function(data) {
@@ -38,7 +37,6 @@ var app = app || {};
   }
 
   recipeViewer.populateDetailedRecipe = function (data) {
-    console.log('recipeViewer.populateDetailedRecipe was called ', data);
     $('#recipe-container').html(' ');
     $('#recipe-container').append(app.recipeViewer.renderDetailedRecipe(data));
     $('#recipe-container table').append(data.Ingredients.map( ingredient => app.recipeViewer.renderRecipeIngredients(ingredient) ))

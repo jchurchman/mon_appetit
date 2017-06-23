@@ -5,7 +5,6 @@ var app = app || {};
   const appController = {};
 
   appController.index = function () {
-    console.log('app.appController.index was called');
     app.appViewer.initIndexApp();
     $('#login').on('click', 'a', app.appViewer.showSignUp);
     $('#signup').on('click', 'a', app.appViewer.showLogIn);
@@ -14,14 +13,12 @@ var app = app || {};
   }
 
   appController.initDashboard = function () {
-    console.log('app.appController.initDashboard was called');
     app.appViewer.showDashboard();
     app.recipeViewer.showRandomRecipe();
     app.userViewer.greetUser();
   }
 
   appController.initSearchAll = function () {
-    console.log('app.appController.initSearchAll was called');
     app.appViewer.showSearchAll();
     app.recipeController.initCategoryFilter();
     app.recipeController.searchListener();
@@ -30,11 +27,10 @@ var app = app || {};
   }
 
   appController.logout = () => {
-    app.recipe.queriedRecipes = ['greek salad'];
-    app.user.userRecipes = [];
+    app.recipe.queriedRecipes = [];
     app.user.userInfo = [];
     $('#login').children('input').val('');
-    $('#signup').children('input').val('');//need to figure out how to make this work
+    $('#signup').children('input').val('');//TODO: need to figure out how to make this work
     page('/');
   }
 

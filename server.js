@@ -3,8 +3,7 @@
 const pg = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
-require('dotenv').config()
-// const requestProxy = require('express-request-proxy');
+require('dotenv').config();
 const superagent = require('superagent');
 require('handlebars');
 const PORT = process.env.PORT || 3000;
@@ -47,23 +46,22 @@ app.get('/login', (request, response) => {
 
 app.get('/myRecipes', (request, response) => {
   var numUserId = Number(request.query.userId);
-  console.log('this is the request body', numUserId);
+
   let sql = 'SELECT recipes.recipe_id, recipes.title, recipes.photo_url FROM recipes INNER JOIN normalize ON recipes.recipe_id = normalize.recipe_id WHERE user_id = $1;'
+
   client.query(sql, [numUserId])
     .then(result => response.send(result.rows))
     .catch(console.error);
 })
 
-app.post('/addUser', (request, response) => {
+app.post('/addUser', (request, response) => {  //TODO: adduser
   console.log('request:', request.query.userName);
   // let sql =
 })
 
-app.post('/myRecipes', (request, response) => {
-  // i'm adding a recipe to the recipe table
+app.post('/myRecipes', (request, response) => { //TODO: check for recipe already in recipe table
   var numRecipeId = Number(request.body.recipeId);
   var numUserId = Number(request.body.userId);
-  console.log('this is the request body', numRecipeId, numUserId, request.body.recipeTitle, request.body.recipePhotoUrl);
   let sql = 'INSERT INTO recipes(recipe_id, title, photo_url) VALUES($1, $2, $3)'
 
   client.query(sql, [numRecipeId, request.body.recipeTitle, request.body.PhotoUrl], function(err){
@@ -80,7 +78,6 @@ app.post('/myRecipes', (request, response) => {
             response.send('ok');
           }
         })
-
     }
   })
 })

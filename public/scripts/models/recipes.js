@@ -3,46 +3,33 @@ var app = app || {};
 
 (function (module) {
 
-  // function Recipe(rawDataObj) {
-  //   Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-  // }
-
   const recipe = {};
 
-  recipe.queriedRecipes = ['greek salad'];
-
-  recipe.getRandom = () => {
+  recipe.getRandom = () => { //TODO: complete this function
     console.log('app.recipe.getRandom is undefined');
   }
 
-  recipe.requestRecipes = function (text, selected, callback) {
-    // var text = $('#text-search').val();
-    // var selected = $('#category-search option:selected').text().toLowerCase();
-    console.log('search button was clicked, then requestRecipes was called');
+  recipe.requestRecipes = function (text, selected, callback) { //TODO:refactor to accept one parameter
     $.get(`/bigoven/${text}/${selected}`, function (data) {
       app.recipe.queriedRecipes = data.Results;
       callback();
     }, 'json');
-    // page(`/searchRecipes/${text}/${selected}`)
   }
 
   recipe.getSingleRecipe = function (targetId, callback) {
     $.get(`/bigoven/${targetId}`, function (data) {
-      console.log('data.Title is ', data.Title);
       app.recipe.singleRecipe = data;
       callback(data);
     }, 'json');
   }
 
-
   recipe.saveRecipe = function (recipeId, recipeTitle, recipeImgUrl) {
-    console.log('in saveRecipe', recipeId, recipeTitle, recipeImgUrl);
     let userId = app.user.userInfo.user_id;
     $.post('/myRecipes', { recipeId: recipeId, userId: userId, recipeTitle: recipeTitle, PhotoUrl: recipeImgUrl }, response => console.log(response), 'json');
   }
 
-
   module.recipe = recipe;
+
 }(app));
 
 
