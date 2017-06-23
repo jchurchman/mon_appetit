@@ -46,7 +46,8 @@ app.get('/login', (request, response) => {
 
 app.get('/myRecipes', (request, response) => {
   var numUserId = Number(request.query.userId);
-  let sql = 'SELECT * FROM recipes WHERE user_id=$1;'
+
+  let sql = 'SELECT recipes.recipe_id, recipes.title, recipes.photo_url FROM recipes INNER JOIN normalize ON recipes.recipe_id = normalize.recipe_id WHERE user_id = $1;'
 
   client.query(sql, [numUserId])
     .then(result => response.send(result.rows))

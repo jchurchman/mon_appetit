@@ -21,6 +21,17 @@
         </div>
 
     </script>
+    <script id="my-card-template" type="text/x-handlebars-template">
+
+        <div class="foo" data-recipeid = "{{recipe_id}}">
+            <img src="{{photo_url}}">
+            <h3>{{title}}</h3>
+            <input type="submit" class="add" value="Add to My Recipes">
+            <input type="submit" class="view" value="View Detailed Recipe">
+            <!--<input type="submit" id="return" class="button" value="Return to Search">-->
+        </div>
+
+    </script>
     <script id="recipe-detail-template" type="text/x-handlebars-template">
     <div class="card" data-recipeid = "{{RecipeID}}">
         <img src="{{PhotoUrl}}">

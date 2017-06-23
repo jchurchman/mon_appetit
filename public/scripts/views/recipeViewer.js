@@ -12,6 +12,8 @@ var app = app || {};
 // TODO: refactor template compiling and filling
   recipeViewer.renderRecipeCard = Handlebars.compile($('#recipe-card-template').text());
   
+  recipeViewer.renderMyRecipeCard = Handlebars.compile($('#my-card-template').text());
+
   recipeViewer.populateRecipeCards = function () {
     $('#searchAll .card-container').append(app.recipe.queriedRecipes.map(app.recipeViewer.renderRecipeCard));
     app.recipeController.recipeDetailListener();
@@ -20,6 +22,7 @@ var app = app || {};
 
   recipeViewer.populateMyRecipes = function (userInfo) {
     $('#searchMy .card-container').append(userInfo.map(app.recipeViewer.renderRecipeCard));
+
     app.recipeController.recipeDetailListener();
   }
 
