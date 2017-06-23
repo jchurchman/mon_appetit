@@ -13,6 +13,12 @@ input[type="submit"] {
   background-color: #FF5252;
   border-radius: 25px;
   padding: 1vh;
+  font-size: 80%;
+  
+}
+#card-view{
+align-items: center;
+
 }
 
 h1 {

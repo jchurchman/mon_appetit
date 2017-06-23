@@ -46,3 +46,78 @@ header li {
   background-color: #FFC107;
   margin: 3vw .5vw;
 }
+
+/* CSS for displaying cards */
+
+.card img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+
+.card {
+	background: white;
+	margin-bottom: 2em;	
+}
+
+.card table {
+margin-left: 10px;
+
+}
+
+.card th, td {
+    padding: 15px;
+    text-align: left;
+    border: solid lightgrey 1px;
+
+}
+
+.card a {
+	color: black;
+	text-decoration: none;
+}
+
+.card a:hover {
+	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+}
+
+.card h4 {
+	padding: auto;
+  text-align: center;
+}
+
+.title {
+	padding: auto;
+  text-align: center;
+	font-weight: bold;
+
+  }
+
+.card p {
+	font-size: 80%;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+
+/* Flexbox stuff */
+
+@media screen and (min-width: 40em) {
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        flex: 0 1 calc(50% - 1em);
+    }
+}
+
+@media screen and (min-width: 60em) {
+
+    .card {
+        flex: 0 1 calc(25% - 1em);
+    }
+}
