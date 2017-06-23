@@ -14,6 +14,10 @@ var app = app || {};
           $('#login p:first').text('User name and password not found.');
         } else {
           user.userInfo = userInfo;
+          $('#login input[type=text]').val('');
+          $('#login input[type=password]').val('');
+          $('#signup input[type=text]').val('');//TODO: need to figure out how to make this work
+          $('#signup input[type=password]').val('');//TODO: need to figure out how to make this work
           page('/dashboard');
         }
 

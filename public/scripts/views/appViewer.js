@@ -23,6 +23,7 @@ var app = app || {};
 
   appViewer.showDashboard = () => {
     $('#dashboard').show().siblings().hide();
+    app.userViewer.showMyRecipes();
     $('header').show();
   }
 
