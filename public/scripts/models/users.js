@@ -16,8 +16,10 @@ var app = app || {};
           user.userInfo = userInfo;
           $('#login input[type=text]').val('');
           $('#login input[type=password]').val('');
-          $('#signup input[type=text]').val('');//TODO: need to figure out how to make this work
-          $('#signup input[type=password]').val('');//TODO: need to figure out how to make this work
+          $('#signup input[type=text]').val('');
+          $('#signup input[type=password]').val('');
+          app.userViewer.showMyRecipes();
+          app.recipeViewer.initCategoryFilter();
           page('/dashboard');
         }
 
