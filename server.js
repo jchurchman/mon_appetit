@@ -44,6 +44,14 @@ app.get('bigoven/categories', (request, response) => {
     });
 });
 
+app.get('/checkUserName', (request, response) => {
+  let sql = `SELECT * FROM users WHERE username = ${request.query.username}`
+
+  client.query(sql, request.query.username)
+    .then( result => response.send(result.rows[0]))
+    .catch(console.error);
+})
+
 app.get('/login', (request, response) => {
   let sql = `SELECT * FROM users WHERE username = $1 AND password = $2`
 
@@ -67,7 +75,7 @@ app.post('/addUser', (request, response) => {  //TODO: adduser
 
   let sql = 'INSERT INTO users (username, password, name) VALUES($1, $2, $3)'
 
-  client.query(sql, [response.body.username, response.body.password, response.body.name], function(err){
+  client.query(sql, [request.body.username, request.body.password, request.body.name], function(err){
     if(err) {
       console.log('error: ', err);
     } else {
