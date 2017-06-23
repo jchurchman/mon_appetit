@@ -5,8 +5,7 @@ var app = app || {};
 (function (module) {
   const recipeController = {};
 
-  recipeController.initCategoryFilter = function () {
-    console.log('app.recipeController.initCategoryFilter was called')
+  recipeController.initCategoryFilter = function () {  //TODO: Move to recipes.js
     $.ajax({
       type: 'GET',
       url: 'https://api2.bigoven.com/recipe/categories?api_key=1x9xx03CdK3xioV1W8sJXRT3RWw01YAN',
@@ -31,7 +30,6 @@ var app = app || {};
       event.preventDefault();
       let text = $('#text-search').val();
       let selected = $('#category-search option:selected').text().toLowerCase();
-      // page(`/searchRecipes/${text}/${selected}`)
       app.recipe.requestRecipes(text, selected, app.recipeViewer.populateRecipeCards)
     });
   }
@@ -39,9 +37,7 @@ var app = app || {};
   recipeController.recipeDetailListener = () => {
     $('.card-container').on('click', '.view', () => {
       event.preventDefault();
-
       var targetId = $(event.target).parent().data('recipeid');
-      console.log('recipeid =', targetId);
       app.recipe.getSingleRecipe(targetId, app.recipeViewer.populateDetailedRecipe)
       page('/expandRecipe')
     })
@@ -53,16 +49,13 @@ var app = app || {};
       event.preventDefault();
       var targetId = $(event.target).parent().data('recipeid');
       var targetPhoto = $(event.target).siblings('img').attr('src');
-      var targetTitle = $(event.target).siblings('h3').text();
-      console.log('clicked on save recipe button', targetId, targetTitle, targetPhoto);
+      var targetTitle = $(event.target).siblings('h3').text();  //TODO: grab sibling via class
       app.recipe.saveRecipe(targetId, targetTitle, targetPhoto);
     })
   }
 
-
   recipeController.backToSearchListener = () => {
     $('.back').on('click', () => {
-      console.log('back button hit!');
       window.history.back();
     })
   }

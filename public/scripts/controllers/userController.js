@@ -5,13 +5,13 @@ var app = app || {};
 (function (module) {
   const userController = {};
 
-  userController.checkPreviousUsers = () => {
+  userController.checkPreviousUsers = () => { //TODO: make sure that previous users function still works
     event.preventDefault();
-    console.log('in usercontroller');
-    let userCheck = [];
+    const userCheck = [];
     const userName = $('#username').val();
     const password = $('#password').val();
-    userCheck = [userName, password];
+    userCheck.push(userName);
+    userCheck.push(password);
     app.user.findwhere(userCheck);
   };
 
@@ -27,17 +27,13 @@ var app = app || {};
     const password_two = $('#confirm-password').val();
     app.userController.passwordCheck(password, password_two);
     app.users.insert(name, userName, password);
-  
   }
-
 
   userController.init = () => {
-    console.log('app.userController.init was called');
     app.userViewer.initMySearchPage();
-    $('#searchMy').on('submit', app.user.queryUserRecipes);
+    $('#searchMy').on('submit', app.user.queryUserRecipes); //TODO: refactor to sort by category
     $('#searchMy').show().siblings().hide();
   }
-
 
   module.userController = userController;
 
